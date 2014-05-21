@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntellidateUser", "IntellidateUser\IntellidateUser.csproj", "{5991920F-867D-4657-A09B-45991A66B12D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntellidateLib", "IntellidateLib\IntellidateLib.csproj", "{C5B73CDA-67E4-487E-9345-8258C9D40533}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntellidateLib", "Lib\IntellidateLib.csproj", "{C5B73CDA-67E4-487E-9345-8258C9D40533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

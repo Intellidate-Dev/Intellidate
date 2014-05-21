@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5B73CDA-67E4-487E-9345-8258C9D40533}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntellidateLib</RootNamespace>
+    <AssemblyName>IntellidateLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\IntellidateDLL\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\IntellidateUser\packages\mongocsharpdriver.1.9.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\IntellidateUser\packages\mongocsharpdriver.1.9.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\IntellidateAdmin\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTextSummarizer">
+      <HintPath>bin\OpenTextSummarizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=4.0.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\Admin\packages\ServiceStack.Redis.4.0.20\lib\net40\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbusiveReport.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="AdminMasterMessage.cs" />
+    <Compile Include="AdminMessageHistory.cs" />
+    <Compile Include="AdminMessages.cs" />
+    <Compile Include="AdminPhoto.cs" />
+    <Compile Include="Album.cs" />
+    <Compile Include="Attachments.cs" />
+    <Compile Include="BodyType.cs" />
+    <Compile Include="CachingDbConnector.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Criteria.cs" />
+    <Compile Include="DB\IntellidateDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntellidateDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\IntellidateDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\IntellidateDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntellidateDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_abusivereport_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_adminmessagehistory_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_adminprivileges_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_adminuser_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_admin_message_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_admin_message_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_admin_photo.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_advertisement_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_album_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_attachment_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_bodytype_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_comments_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_criteriaoptions_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_criteria_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_drink_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_drug_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_education_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_ethnicity_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_forumpost_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_forumprivileges_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_forumscategory_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_havechildren_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_horoscope_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_income_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_jobtype_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_language_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_location_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_message_reply.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_message_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_options_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_orientation_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_pages_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_photo_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_questionrating_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_question_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_religion_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_reportedphotooptions_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_smoke_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_userlanguage_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_userlogin_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_usermessagereport_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_userprofilesave_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_userprofileview_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_userprofile_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_userquestions_trn.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_user_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_user_notification.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\in_video_mst.cs">
+      <DependentUpon>IntellidateDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Drink.cs" />
+    <Compile Include="Education.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="Ethnicity.cs" />
+    <Compile Include="Forum.cs" />
+    <Compile Include="ForumAttachment.cs" />
+    <Compile Include="ForumCategory.cs" />
+    <Compile Include="ForumNotification.cs" />
+    <Compile Include="Drugs.cs" />
+    <Compile Include="HaveChildren.cs" />
+    <Compile Include="Horoscope.cs" />
+    <Compile Include="Income.cs" />
+    <Compile Include="JobType.cs" />
+    <Compile Include="Language.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="LoginDetails.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageReply.cs" />
+    <Compile Include="MutualMatch.cs" />
+    <Compile Include="MyOrientation.cs" />
+    <Compile Include="Photo.cs" />
+    <Compile Include="Priveleges.cs" />
+    <Compile Include="ProfileSave.cs" />
+    <Compile Include="ProfilesViewedByMe.cs" />
+    <Compile Include="ProfileView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Religion.cs" />
+    <Compile Include="SearchInput.cs" />
+    <Compile Include="Smoke.cs" />
+    <Compile Include="TextToWords.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserAccountSettings.cs" />
+    <Compile Include="UserCriteria.cs" />
+    <Compile Include="UserDetails.cs" />
+    <Compile Include="UserLanguages.cs" />
+    <Compile Include="UserManagement.cs" />
+    <Compile Include="UserMessageReport.cs" />
+    <Compile Include="UserNotification.cs" />
+    <Compile Include="UserProfile.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="WhoSavedMe.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DB\IntellidateDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IntellidateDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\IntellidateDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IntellidateDB.edmx</DependentUpon>
+      <LastGenOutput>IntellidateDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DB\IntellidateDB.edmx.diagram">
+      <DependentUpon>IntellidateDB.edmx</DependentUpon>
+    </None>
+    <None Include="DB\IntellidateDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IntellidateDB.edmx</DependentUpon>
+      <LastGenOutput>IntellidateDB.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dics\bg.xml" />
+    <Content Include="dics\ca.xml" />
+    <Content Include="dics\cs.xml" />
+    <Content Include="dics\cy.xml" />
+    <Content Include="dics\da.xml" />
+    <Content Include="dics\de.xml" />
+    <Content Include="dics\el.xml" />
+    <Content Include="dics\en.xml" />
+    <Content Include="dics\eo.xml" />
+    <Content Include="dics\es.xml" />
+    <Content Include="dics\et.xml" />
+    <Content Include="dics\eu.xml" />
+    <Content Include="dics\fi.xml" />
+    <Content Include="dics\fr.xml" />
+    <Content Include="dics\ga.xml" />
+    <Content Include="dics\gl.xml" />
+    <Content Include="dics\he.xml" />
+    <Content Include="dics\hu.xml" />
+    <Content Include="dics\ia.xml" />
+    <Content Include="dics\id.xml" />
+    <Content Include="dics\is.xml" />
+    <Content Include="dics\it.xml" />
+    <Content Include="dics\lv.xml" />
+    <Content Include="dics\mi.xml" />
+    <Content Include="dics\ms.xml" />
+    <Content Include="dics\mt.xml" />
+    <Content Include="dics\nl.xml" />
+    <Content Include="dics\nn.xml" />
+    <Content Include="dics\pl.xml" />
+    <Content Include="dics\pt.xml" />
+    <Content Include="dics\ro.xml" />
+    <Content Include="dics\ru.xml" />
+    <Content Include="dics\sv.xml" />
+    <Content Include="dics\tl.xml" />
+    <Content Include="dics\tr.xml" />
+    <Content Include="dics\uk.xml" />
+    <Content Include="dics\yi.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

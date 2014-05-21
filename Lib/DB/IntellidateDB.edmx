@@ -1,0 +1,3232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="intellidatev2Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="in_abusivereport_mst">
+          <Key>
+            <PropertyRef Name="AbusiveId" />
+          </Key>
+          <Property Name="AbusiveId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AbusiveReportId" Type="int" />
+          <Property Name="PhotoId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="in_admin_message_mst">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="200" />
+          <Property Name="MessageText" Type="varchar" MaxLength="2000" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="in_admin_message_trn">
+          <Key>
+            <PropertyRef Name="MessageTrnID" />
+          </Key>
+          <Property Name="MessageTrnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MessageID" Type="int" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="RecipientID" Type="int" />
+          <Property Name="SentTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="IsMessageViewed" Type="bit" />
+          <Property Name="MessageViewedTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="LastEdited" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_admin_photo">
+          <Key>
+            <PropertyRef Name="AadminPhotoID" />
+          </Key>
+          <Property Name="AadminPhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminId" Type="int" />
+          <Property Name="PhotoId" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="500" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" />
+        </EntityType>
+        <EntityType Name="in_adminmessagehistory_mst">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminId" Type="int" />
+          <Property Name="MessageId" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="500" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="IsRejected" Type="bit" />
+        </EntityType>
+        <EntityType Name="in_adminprivileges_mst">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminid" Type="int" />
+          <Property Name="privilegeid" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="in_adminuser_mst">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="varchar" MaxLength="200" />
+          <Property Name="LoginName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="AdminType" Type="char" MaxLength="1" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="in_advertisement_mst">
+          <Key>
+            <PropertyRef Name="AdvertisementID" />
+          </Key>
+          <Property Name="AdvertisementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttachmentId" Type="int" />
+          <Property Name="PageID" Type="int" Nullable="false" />
+          <Property Name="ContentType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Companie" Type="varchar" MaxLength="45" />
+          <Property Name="AdvertisementUrl" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="AdStartDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="AdEndDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_album_mst">
+          <Key>
+            <PropertyRef Name="albumID" />
+          </Key>
+          <Property Name="albumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlbumName" Type="varchar" MaxLength="1000" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_attachment_mst">
+          <Key>
+            <PropertyRef Name="AttachmentId" />
+          </Key>
+          <Property Name="AttachmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FolderNaame" Type="varchar" MaxLength="45" />
+          <Property Name="AttachmentPath" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="in_bodytype_mst">
+          <Key>
+            <PropertyRef Name="BodyTypeId" />
+          </Key>
+          <Property Name="BodyTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_comments_trn">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CommentText" Type="varchar" MaxLength="2000" />
+          <Property Name="photoID" Type="int" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_criteria_mst">
+          <Key>
+            <PropertyRef Name="criteriaid" />
+          </Key>
+          <Property Name="criteriaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="criterianame" Type="varchar" MaxLength="1000" />
+          <Property Name="criteriatype" Type="int" />
+          <Property Name="status" Type="char" MaxLength="1" />
+          <Property Name="timestamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="optionquestion" Type="varchar" MaxLength="1000" />
+          <Property Name="preferencequestion" Type="varchar" MaxLength="1000" />
+          <Property Name="MismatchText" Type="varchar" MaxLength="1000" />
+          <Property Name="ShowMatch" Type="bit" />
+          <Property Name="includeallInpreference" Type="bit" />
+          <Property Name="includeallInpreferencetext" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="in_criteriaoptions_trn">
+          <Key>
+            <PropertyRef Name="trnid" />
+          </Key>
+          <Property Name="trnid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="criteriaid" Type="int" />
+          <Property Name="optiontext" Type="varchar" MaxLength="1000" />
+          <Property Name="status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_drink_mst">
+          <Key>
+            <PropertyRef Name="DrinkId" />
+          </Key>
+          <Property Name="DrinkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_drug_mst">
+          <Key>
+            <PropertyRef Name="DrugId" />
+          </Key>
+          <Property Name="DrugId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_education_mst">
+          <Key>
+            <PropertyRef Name="EduId" />
+          </Key>
+          <Property Name="EduId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Qualification" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_ethnicity_mst">
+          <Key>
+            <PropertyRef Name="EthnicityId" />
+          </Key>
+          <Property Name="EthnicityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ethnicity" Type="varchar" MaxLength="40" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_forumpost_trn">
+          <Key>
+            <PropertyRef Name="trnid" />
+          </Key>
+          <Property Name="trnid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminid" Type="int" />
+          <Property Name="categoryid" Type="int" />
+          <Property Name="posttitle" Type="varchar" MaxLength="1000" />
+          <Property Name="posttext" Type="varchar" MaxLength="4000" />
+          <Property Name="timestamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="status" Type="char" MaxLength="1" />
+          <Property Name="parentpostid" Type="int" />
+        </EntityType>
+        <EntityType Name="in_forumprivileges_trn">
+          <Key>
+            <PropertyRef Name="trnid" />
+          </Key>
+          <Property Name="trnid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="forumcategoryid" Type="int" />
+          <Property Name="adminid" Type="int" />
+        </EntityType>
+        <EntityType Name="in_forumscategory_mst">
+          <Key>
+            <PropertyRef Name="categoryid" />
+          </Key>
+          <Property Name="categoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryname" Type="varchar" MaxLength="200" />
+          <Property Name="status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_havechildren_mst">
+          <Key>
+            <PropertyRef Name="HaveChildrenId" />
+          </Key>
+          <Property Name="HaveChildrenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="2000" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_horoscope_mst">
+          <Key>
+            <PropertyRef Name="HoroscopeId" />
+          </Key>
+          <Property Name="HoroscopeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="2000" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_income_mst">
+          <Key>
+            <PropertyRef Name="IncomeId" />
+          </Key>
+          <Property Name="IncomeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Salary" Type="varchar" MaxLength="60" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_jobtype_mst">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="45" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_language_mst">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_location_mst">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_message_reply">
+          <Key>
+            <PropertyRef Name="ReplyId" />
+          </Key>
+          <Property Name="ReplyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="RecipientId" Type="int" />
+          <Property Name="IsReply" Type="bit" />
+        </EntityType>
+        <EntityType Name="in_message_trn">
+          <Key>
+            <PropertyRef Name="messageID" />
+          </Key>
+          <Property Name="messageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SenderID" Type="int" />
+          <Property Name="RecipientID" Type="int" />
+          <Property Name="MessageText" Type="varchar" MaxLength="2000" />
+          <Property Name="SentTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="IsMessageViewed" Type="bit" />
+          <Property Name="MessageViewedTime" Type="timestamp" Precision="0" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="LastEdited" Type="timestamp" Precision="0" />
+          <Property Name="MessageDeletedBySender" Type="bit" />
+          <Property Name="MessageDeletedByRecipient" Type="bit" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="IsRejected" Type="bit" />
+        </EntityType>
+        <EntityType Name="in_options_trn">
+          <Key>
+            <PropertyRef Name="optionID" />
+          </Key>
+          <Property Name="optionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionText" Type="varchar" MaxLength="2000" />
+          <Property Name="IsGenderSpecific" Type="char" MaxLength="1" />
+          <Property Name="questionID" Type="int" />
+        </EntityType>
+        <EntityType Name="in_orientation_mst">
+          <Key>
+            <PropertyRef Name="OrientationId" />
+          </Key>
+          <Property Name="OrientationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrientationType" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_pages_mst">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PageName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_photo_mst">
+          <Key>
+            <PropertyRef Name="photoID" />
+          </Key>
+          <Property Name="photoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="albumID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="AttachmentId" Type="int" />
+          <Property Name="AbusiveId" Type="int" />
+          <Property Name="IsDefaultUserPhoto" Type="bit" />
+          <Property Name="IsDefaultAlbumPhoto" Type="bit" />
+          <Property Name="PhotoTitle" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="PhotoSize" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="in_question_mst">
+          <Key>
+            <PropertyRef Name="questionID" />
+          </Key>
+          <Property Name="questionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionText" Type="varchar" MaxLength="2000" />
+          <Property Name="QuestionType" Type="int" />
+          <Property Name="OptionNoneType" Type="int" Nullable="false" />
+          <Property Name="OptionAllType" Type="int" Nullable="false" />
+          <Property Name="OptionAddType" Type="int" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="in_questionrating_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_religion_mst">
+          <Key>
+            <PropertyRef Name="ReligionId" />
+          </Key>
+          <Property Name="ReligionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReligionType" Type="varchar" MaxLength="40" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_reportedphotooptions_mst">
+          <Key>
+            <PropertyRef Name="ReportedPhotoId" />
+          </Key>
+          <Property Name="ReportedPhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionText" Type="varchar" MaxLength="45" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_smoke_mst">
+          <Key>
+            <PropertyRef Name="SmokeId" />
+          </Key>
+          <Property Name="SmokeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SmokeDetails" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_user_mst">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="varchar" MaxLength="20" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="DateOfBirth" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="UserAgeInYears" Type="int" />
+          <Property Name="LastOnlineTime" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="in_user_notification">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Name="NotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="OtherUserId" Type="int" />
+          <Property Name="NotificationText" Type="varchar" MaxLength="400" />
+          <Property Name="NotificationType" Type="varchar" MaxLength="30" />
+          <Property Name="TimeSpan" Type="datetime" Precision="0" />
+          <Property Name="IsViewed" Type="bit" />
+        </EntityType>
+        <EntityType Name="in_userlanguage_trn">
+          <Key>
+            <PropertyRef Name="trnId" />
+          </Key>
+          <Property Name="trnId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="Proficiency" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_userlogin_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Browser" Type="varchar" MaxLength="200" />
+          <Property Name="OS" Type="varchar" MaxLength="200" />
+          <Property Name="Latitude" Type="varchar" MaxLength="20" />
+          <Property Name="Longitude" Type="varchar" MaxLength="20" />
+          <Property Name="Referer" Type="varchar" MaxLength="200" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="in_usermessagereport_mst">
+          <Key>
+            <PropertyRef Name="ReportId" />
+          </Key>
+          <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="MessageId" Type="int" />
+          <Property Name="ReportText" Type="varchar" MaxLength="45" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="in_userprofile_trn">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="BodyTypeId" Type="int" />
+          <Property Name="DrinkId" Type="int" />
+          <Property Name="EduId" Type="int" />
+          <Property Name="EthnicityId" Type="int" />
+          <Property Name="DrugId" Type="int" />
+          <Property Name="HaveChildrenId" Type="int" />
+          <Property Name="HoroscopeId" Type="int" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="ReligionId" Type="int" />
+          <Property Name="SmokeId" Type="int" />
+          <Property Name="JobId" Type="int" />
+          <Property Name="OrientationId" Type="int" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IncomeId" Type="int" />
+          <Property Name="Height" Type="int" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="LastEdited" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="IsUserType" Type="bit" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" />
+          <Property Name="IsVesibleToStraightPeople" Type="bit" />
+          <Property Name="ReligionImportance" Type="varchar" MaxLength="40" />
+          <Property Name="HoroscopeImportance" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="in_userprofilesave_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="SaveUserID" Type="int" />
+          <Property Name="SavedTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_userprofileview_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="OtherUserID" Type="int" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_userquestions_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="QuestionOptionID" Type="int" />
+          <Property Name="CommentText" Type="varchar" MaxLength="1000" />
+          <Property Name="TimeStamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="QuestionID" Type="int" />
+        </EntityType>
+        <EntityType Name="in_video_mst">
+          <Key>
+            <PropertyRef Name="VideoID" />
+          </Key>
+          <Property Name="VideoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoName" Type="varchar" MaxLength="40" />
+          <Property Name="AttachmentId" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CreatedDate" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="VideoDuration" Type="varchar" MaxLength="20" />
+          <Property Name="VideoSize" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="AdminKey">
+          <End Role="in_adminuser_mst" Type="Self.in_adminuser_mst" Multiplicity="0..1" />
+          <End Role="in_admin_photo" Type="Self.in_admin_photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_adminuser_mst">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="in_admin_photo">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="adminmap">
+          <End Role="in_adminuser_mst" Type="Self.in_adminuser_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_adminprivileges_mst" Type="Self.in_adminprivileges_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_adminuser_mst">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="in_adminprivileges_mst">
+              <PropertyRef Name="adminid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="albumPhotos">
+          <End Role="in_album_mst" Type="Self.in_album_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_album_mst">
+              <PropertyRef Name="albumID" />
+            </Principal>
+            <Dependent Role="in_photo_mst">
+              <PropertyRef Name="albumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bodytype">
+          <End Role="in_bodytype_mst" Type="Self.in_bodytype_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_bodytype_mst">
+              <PropertyRef Name="BodyTypeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="BodyTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="criteriamap">
+          <End Role="in_criteria_mst" Type="Self.in_criteria_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_criteriaoptions_trn" Type="Self.in_criteriaoptions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_criteria_mst">
+              <PropertyRef Name="criteriaid" />
+            </Principal>
+            <Dependent Role="in_criteriaoptions_trn">
+              <PropertyRef Name="criteriaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="drink">
+          <End Role="in_drink_mst" Type="Self.in_drink_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_drink_mst">
+              <PropertyRef Name="DrinkId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="DrinkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="education">
+          <End Role="in_education_mst" Type="Self.in_education_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_education_mst">
+              <PropertyRef Name="EduId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="EduId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ethnicity">
+          <End Role="in_ethnicity_mst" Type="Self.in_ethnicity_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_ethnicity_mst">
+              <PropertyRef Name="EthnicityId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="EthnicityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk">
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="0..1" />
+          <End Role="in_comments_trn" Type="Self.in_comments_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_photo_mst">
+              <PropertyRef Name="photoID" />
+            </Principal>
+            <Dependent Role="in_comments_trn">
+              <PropertyRef Name="photoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_attachment">
+          <End Role="in_attachment_mst" Type="Self.in_attachment_mst" Multiplicity="0..1" />
+          <End Role="in_advertisement_mst" Type="Self.in_advertisement_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_attachment_mst">
+              <PropertyRef Name="AttachmentId" />
+            </Principal>
+            <Dependent Role="in_advertisement_mst">
+              <PropertyRef Name="AttachmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pages">
+          <End Role="in_pages_mst" Type="Self.in_pages_mst" Multiplicity="1" />
+          <End Role="in_advertisement_mst" Type="Self.in_advertisement_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_pages_mst">
+              <PropertyRef Name="PageID" />
+            </Principal>
+            <Dependent Role="in_advertisement_mst">
+              <PropertyRef Name="PageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_userid">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_video_mst" Type="Self.in_video_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_video_mst">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gender">
+          <End Role="in_drug_mst" Type="Self.in_drug_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_drug_mst">
+              <PropertyRef Name="DrugId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="DrugId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HaveChildren">
+          <End Role="in_havechildren_mst" Type="Self.in_havechildren_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_havechildren_mst">
+              <PropertyRef Name="HaveChildrenId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="HaveChildrenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="horoscope">
+          <End Role="in_horoscope_mst" Type="Self.in_horoscope_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_horoscope_mst">
+              <PropertyRef Name="HoroscopeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="HoroscopeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="income">
+          <End Role="in_income_mst" Type="Self.in_income_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_income_mst">
+              <PropertyRef Name="IncomeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="IncomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="job">
+          <End Role="in_jobtype_mst" Type="Self.in_jobtype_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_jobtype_mst">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="languagekey">
+          <End Role="in_language_mst" Type="Self.in_language_mst" Multiplicity="0..1" />
+          <End Role="in_userlanguage_trn" Type="Self.in_userlanguage_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_language_mst">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="in_userlanguage_trn">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="location">
+          <End Role="in_location_mst" Type="Self.in_location_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_location_mst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="logindetails">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userlogin_trn" Type="Self.in_userlogin_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userlogin_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MessageRecipient">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_message_trn" Type="Self.in_message_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_message_trn">
+              <PropertyRef Name="RecipientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MessageSender">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_message_trn" Type="Self.in_message_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_message_trn">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Orientation">
+          <End Role="in_orientation_mst" Type="Self.in_orientation_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_orientation_mst">
+              <PropertyRef Name="OrientationId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="OrientationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PhotoKey">
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="0..1" />
+          <End Role="in_admin_photo" Type="Self.in_admin_photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_photo_mst">
+              <PropertyRef Name="photoID" />
+            </Principal>
+            <Dependent Role="in_admin_photo">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="questionOptions">
+          <End Role="in_question_mst" Type="Self.in_question_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_options_trn" Type="Self.in_options_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_question_mst">
+              <PropertyRef Name="questionID" />
+            </Principal>
+            <Dependent Role="in_options_trn">
+              <PropertyRef Name="questionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="questionRating">
+          <End Role="in_question_mst" Type="Self.in_question_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_questionrating_trn" Type="Self.in_questionrating_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_question_mst">
+              <PropertyRef Name="questionID" />
+            </Principal>
+            <Dependent Role="in_questionrating_trn">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RecipientID">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_admin_message_trn" Type="Self.in_admin_message_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_admin_message_trn">
+              <PropertyRef Name="RecipientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="religion">
+          <End Role="in_religion_mst" Type="Self.in_religion_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_religion_mst">
+              <PropertyRef Name="ReligionId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="ReligionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saveOther">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userprofilesave_trn" Type="Self.in_userprofilesave_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofilesave_trn">
+              <PropertyRef Name="SaveUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saveOwner">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userprofilesave_trn" Type="Self.in_userprofilesave_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofilesave_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="smoke">
+          <End Role="in_smoke_mst" Type="Self.in_smoke_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_smoke_mst">
+              <PropertyRef Name="SmokeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="SmokeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ufk">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_comments_trn" Type="Self.in_comments_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_comments_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAlbums">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_album_mst" Type="Self.in_album_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_album_mst">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAnswers">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userquestions_trn" Type="Self.in_userquestions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userquestions_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userBeingViewed">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userprofileview_trn" Type="Self.in_userprofileview_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofileview_trn">
+              <PropertyRef Name="OtherUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userkey">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userlanguage_trn" Type="Self.in_userlanguage_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userlanguage_trn">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserOptions">
+          <End Role="in_options_trn" Type="Self.in_options_trn" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userquestions_trn" Type="Self.in_userquestions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_options_trn">
+              <PropertyRef Name="optionID" />
+            </Principal>
+            <Dependent Role="in_userquestions_trn">
+              <PropertyRef Name="QuestionOptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userPhotos">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_photo_mst">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userQuestionRating">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_questionrating_trn" Type="Self.in_questionrating_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_questionrating_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserQuestions">
+          <End Role="in_question_mst" Type="Self.in_question_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userquestions_trn" Type="Self.in_userquestions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_question_mst">
+              <PropertyRef Name="questionID" />
+            </Principal>
+            <Dependent Role="in_userquestions_trn">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userViewing">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userprofileview_trn" Type="Self.in_userprofileview_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofileview_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="intellidatev2ModelStoreContainer">
+          <EntitySet Name="in_abusivereport_mst" EntityType="Self.in_abusivereport_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_admin_message_mst" EntityType="Self.in_admin_message_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_admin_message_trn" EntityType="Self.in_admin_message_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_admin_photo" EntityType="Self.in_admin_photo" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_adminmessagehistory_mst" EntityType="Self.in_adminmessagehistory_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_adminprivileges_mst" EntityType="Self.in_adminprivileges_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_adminuser_mst" EntityType="Self.in_adminuser_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_advertisement_mst" EntityType="Self.in_advertisement_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_album_mst" EntityType="Self.in_album_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_attachment_mst" EntityType="Self.in_attachment_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_bodytype_mst" EntityType="Self.in_bodytype_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_comments_trn" EntityType="Self.in_comments_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_criteria_mst" EntityType="Self.in_criteria_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_criteriaoptions_trn" EntityType="Self.in_criteriaoptions_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_drink_mst" EntityType="Self.in_drink_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_drug_mst" EntityType="Self.in_drug_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_education_mst" EntityType="Self.in_education_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_ethnicity_mst" EntityType="Self.in_ethnicity_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_forumpost_trn" EntityType="Self.in_forumpost_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_forumprivileges_trn" EntityType="Self.in_forumprivileges_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_forumscategory_mst" EntityType="Self.in_forumscategory_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_havechildren_mst" EntityType="Self.in_havechildren_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_horoscope_mst" EntityType="Self.in_horoscope_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_income_mst" EntityType="Self.in_income_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_jobtype_mst" EntityType="Self.in_jobtype_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_language_mst" EntityType="Self.in_language_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_location_mst" EntityType="Self.in_location_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_message_reply" EntityType="Self.in_message_reply" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_message_trn" EntityType="Self.in_message_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_options_trn" EntityType="Self.in_options_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_orientation_mst" EntityType="Self.in_orientation_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_pages_mst" EntityType="Self.in_pages_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_photo_mst" EntityType="Self.in_photo_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_question_mst" EntityType="Self.in_question_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_questionrating_trn" EntityType="Self.in_questionrating_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_religion_mst" EntityType="Self.in_religion_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_reportedphotooptions_mst" EntityType="Self.in_reportedphotooptions_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_smoke_mst" EntityType="Self.in_smoke_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_user_mst" EntityType="Self.in_user_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_user_notification" EntityType="Self.in_user_notification" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_userlanguage_trn" EntityType="Self.in_userlanguage_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_userlogin_trn" EntityType="Self.in_userlogin_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_usermessagereport_mst" EntityType="Self.in_usermessagereport_mst" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_userprofile_trn" EntityType="Self.in_userprofile_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_userprofilesave_trn" EntityType="Self.in_userprofilesave_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_userprofileview_trn" EntityType="Self.in_userprofileview_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_userquestions_trn" EntityType="Self.in_userquestions_trn" Schema="intellidatev2" store:Type="Tables" />
+          <EntitySet Name="in_video_mst" EntityType="Self.in_video_mst" Schema="intellidatev2" store:Type="Tables" />
+          <AssociationSet Name="AdminKey" Association="Self.AdminKey">
+            <End Role="in_adminuser_mst" EntitySet="in_adminuser_mst" />
+            <End Role="in_admin_photo" EntitySet="in_admin_photo" />
+          </AssociationSet>
+          <AssociationSet Name="adminmap" Association="Self.adminmap">
+            <End Role="in_adminuser_mst" EntitySet="in_adminuser_mst" />
+            <End Role="in_adminprivileges_mst" EntitySet="in_adminprivileges_mst" />
+          </AssociationSet>
+          <AssociationSet Name="albumPhotos" Association="Self.albumPhotos">
+            <End Role="in_album_mst" EntitySet="in_album_mst" />
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+          </AssociationSet>
+          <AssociationSet Name="bodytype" Association="Self.bodytype">
+            <End Role="in_bodytype_mst" EntitySet="in_bodytype_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="criteriamap" Association="Self.criteriamap">
+            <End Role="in_criteria_mst" EntitySet="in_criteria_mst" />
+            <End Role="in_criteriaoptions_trn" EntitySet="in_criteriaoptions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="drink" Association="Self.drink">
+            <End Role="in_drink_mst" EntitySet="in_drink_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="education" Association="Self.education">
+            <End Role="in_education_mst" EntitySet="in_education_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="ethnicity" Association="Self.ethnicity">
+            <End Role="in_ethnicity_mst" EntitySet="in_ethnicity_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="fk" Association="Self.fk">
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+            <End Role="in_comments_trn" EntitySet="in_comments_trn" />
+          </AssociationSet>
+          <AssociationSet Name="fk_attachment" Association="Self.fk_attachment">
+            <End Role="in_attachment_mst" EntitySet="in_attachment_mst" />
+            <End Role="in_advertisement_mst" EntitySet="in_advertisement_mst" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pages" Association="Self.fk_pages">
+            <End Role="in_pages_mst" EntitySet="in_pages_mst" />
+            <End Role="in_advertisement_mst" EntitySet="in_advertisement_mst" />
+          </AssociationSet>
+          <AssociationSet Name="fk_userid" Association="Self.fk_userid">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_video_mst" EntitySet="in_video_mst" />
+          </AssociationSet>
+          <AssociationSet Name="gender" Association="Self.gender">
+            <End Role="in_drug_mst" EntitySet="in_drug_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="HaveChildren" Association="Self.HaveChildren">
+            <End Role="in_havechildren_mst" EntitySet="in_havechildren_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="horoscope" Association="Self.horoscope">
+            <End Role="in_horoscope_mst" EntitySet="in_horoscope_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="income" Association="Self.income">
+            <End Role="in_income_mst" EntitySet="in_income_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="job" Association="Self.job">
+            <End Role="in_jobtype_mst" EntitySet="in_jobtype_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="languagekey" Association="Self.languagekey">
+            <End Role="in_language_mst" EntitySet="in_language_mst" />
+            <End Role="in_userlanguage_trn" EntitySet="in_userlanguage_trn" />
+          </AssociationSet>
+          <AssociationSet Name="location" Association="Self.location">
+            <End Role="in_location_mst" EntitySet="in_location_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="logindetails" Association="Self.logindetails">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userlogin_trn" EntitySet="in_userlogin_trn" />
+          </AssociationSet>
+          <AssociationSet Name="MessageRecipient" Association="Self.MessageRecipient">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_message_trn" EntitySet="in_message_trn" />
+          </AssociationSet>
+          <AssociationSet Name="MessageSender" Association="Self.MessageSender">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_message_trn" EntitySet="in_message_trn" />
+          </AssociationSet>
+          <AssociationSet Name="Orientation" Association="Self.Orientation">
+            <End Role="in_orientation_mst" EntitySet="in_orientation_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="PhotoKey" Association="Self.PhotoKey">
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+            <End Role="in_admin_photo" EntitySet="in_admin_photo" />
+          </AssociationSet>
+          <AssociationSet Name="questionOptions" Association="Self.questionOptions">
+            <End Role="in_question_mst" EntitySet="in_question_mst" />
+            <End Role="in_options_trn" EntitySet="in_options_trn" />
+          </AssociationSet>
+          <AssociationSet Name="questionRating" Association="Self.questionRating">
+            <End Role="in_question_mst" EntitySet="in_question_mst" />
+            <End Role="in_questionrating_trn" EntitySet="in_questionrating_trn" />
+          </AssociationSet>
+          <AssociationSet Name="RecipientID" Association="Self.RecipientID">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_admin_message_trn" EntitySet="in_admin_message_trn" />
+          </AssociationSet>
+          <AssociationSet Name="religion" Association="Self.religion">
+            <End Role="in_religion_mst" EntitySet="in_religion_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="saveOther" Association="Self.saveOther">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofilesave_trn" EntitySet="in_userprofilesave_trn" />
+          </AssociationSet>
+          <AssociationSet Name="saveOwner" Association="Self.saveOwner">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofilesave_trn" EntitySet="in_userprofilesave_trn" />
+          </AssociationSet>
+          <AssociationSet Name="smoke" Association="Self.smoke">
+            <End Role="in_smoke_mst" EntitySet="in_smoke_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="ufk" Association="Self.ufk">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_comments_trn" EntitySet="in_comments_trn" />
+          </AssociationSet>
+          <AssociationSet Name="User" Association="Self.User">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="UserAlbums" Association="Self.UserAlbums">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_album_mst" EntitySet="in_album_mst" />
+          </AssociationSet>
+          <AssociationSet Name="UserAnswers" Association="Self.UserAnswers">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userquestions_trn" EntitySet="in_userquestions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userBeingViewed" Association="Self.userBeingViewed">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofileview_trn" EntitySet="in_userprofileview_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userkey" Association="Self.userkey">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userlanguage_trn" EntitySet="in_userlanguage_trn" />
+          </AssociationSet>
+          <AssociationSet Name="UserOptions" Association="Self.UserOptions">
+            <End Role="in_options_trn" EntitySet="in_options_trn" />
+            <End Role="in_userquestions_trn" EntitySet="in_userquestions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userPhotos" Association="Self.userPhotos">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+          </AssociationSet>
+          <AssociationSet Name="userQuestionRating" Association="Self.userQuestionRating">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_questionrating_trn" EntitySet="in_questionrating_trn" />
+          </AssociationSet>
+          <AssociationSet Name="UserQuestions" Association="Self.UserQuestions">
+            <End Role="in_question_mst" EntitySet="in_question_mst" />
+            <End Role="in_userquestions_trn" EntitySet="in_userquestions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userViewing" Association="Self.userViewing">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofileview_trn" EntitySet="in_userprofileview_trn" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="intellidatev2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="in_abusivereport_mst">
+          <Key>
+            <PropertyRef Name="AbusiveId" />
+          </Key>
+          <Property Name="AbusiveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AbusiveReportId" Type="Int32" />
+          <Property Name="PhotoId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="in_admin_message_mst">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MessageText" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="in_admin_message_trn">
+          <Key>
+            <PropertyRef Name="MessageTrnID" />
+          </Key>
+          <Property Name="MessageTrnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageID" Type="Int32" />
+          <Property Name="AdminID" Type="Int32" />
+          <Property Name="RecipientID" Type="Int32" />
+          <Property Name="SentTime" Type="DateTime" Nullable="false" />
+          <Property Name="IsMessageViewed" Type="Boolean" />
+          <Property Name="MessageViewedTime" Type="DateTime" Nullable="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="LastEdited" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.RecipientID" FromRole="in_admin_message_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_admin_photo">
+          <Key>
+            <PropertyRef Name="AadminPhotoID" />
+          </Key>
+          <Property Name="AadminPhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminId" Type="Int32" />
+          <Property Name="PhotoId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="IsApproved" Type="Boolean" />
+          <NavigationProperty Name="in_adminuser_mst" Relationship="Self.AdminKey" FromRole="in_admin_photo" ToRole="in_adminuser_mst" />
+          <NavigationProperty Name="in_photo_mst" Relationship="Self.PhotoKey" FromRole="in_admin_photo" ToRole="in_photo_mst" />
+        </EntityType>
+        <EntityType Name="in_adminmessagehistory_mst">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminId" Type="Int32" />
+          <Property Name="MessageId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="IsRejected" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="in_adminprivileges_mst">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminid" Type="Int32" />
+          <Property Name="privilegeid" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_adminuser_mst" Relationship="Self.adminmap" FromRole="in_adminprivileges_mst" ToRole="in_adminuser_mst" />
+        </EntityType>
+        <EntityType Name="in_adminuser_mst">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AdminType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_admin_photo" Relationship="Self.AdminKey" FromRole="in_adminuser_mst" ToRole="in_admin_photo" />
+          <NavigationProperty Name="in_adminprivileges_mst" Relationship="Self.adminmap" FromRole="in_adminuser_mst" ToRole="in_adminprivileges_mst" />
+        </EntityType>
+        <EntityType Name="in_advertisement_mst">
+          <Key>
+            <PropertyRef Name="AdvertisementID" />
+          </Key>
+          <Property Name="AdvertisementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttachmentId" Type="Int32" />
+          <Property Name="PageID" Type="Int32" Nullable="false" />
+          <Property Name="ContentType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Companie" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="AdvertisementUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AdStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="AdEndDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_attachment_mst" Relationship="Self.fk_attachment" FromRole="in_advertisement_mst" ToRole="in_attachment_mst" />
+          <NavigationProperty Name="in_pages_mst" Relationship="Self.fk_pages" FromRole="in_advertisement_mst" ToRole="in_pages_mst" />
+        </EntityType>
+        <EntityType Name="in_album_mst">
+          <Key>
+            <PropertyRef Name="albumID" />
+          </Key>
+          <Property Name="albumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlbumName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_photo_mst" Relationship="Self.albumPhotos" FromRole="in_album_mst" ToRole="in_photo_mst" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.UserAlbums" FromRole="in_album_mst" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_attachment_mst">
+          <Key>
+            <PropertyRef Name="AttachmentId" />
+          </Key>
+          <Property Name="AttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FolderNaame" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="AttachmentPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_advertisement_mst" Relationship="Self.fk_attachment" FromRole="in_attachment_mst" ToRole="in_advertisement_mst" />
+        </EntityType>
+        <EntityType Name="in_bodytype_mst">
+          <Key>
+            <PropertyRef Name="BodyTypeId" />
+          </Key>
+          <Property Name="BodyTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.bodytype" FromRole="in_bodytype_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_comments_trn">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CommentText" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="photoID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_photo_mst" Relationship="Self.fk" FromRole="in_comments_trn" ToRole="in_photo_mst" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.ufk" FromRole="in_comments_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_criteria_mst">
+          <Key>
+            <PropertyRef Name="criteriaid" />
+          </Key>
+          <Property Name="criteriaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="criterianame" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="criteriatype" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" />
+          <Property Name="optionquestion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="preferencequestion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="MismatchText" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ShowMatch" Type="Boolean" />
+          <Property Name="includeallInpreference" Type="Boolean" />
+          <Property Name="includeallInpreferencetext" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_criteriaoptions_trn" Relationship="Self.criteriamap" FromRole="in_criteria_mst" ToRole="in_criteriaoptions_trn" />
+        </EntityType>
+        <EntityType Name="in_criteriaoptions_trn">
+          <Key>
+            <PropertyRef Name="trnid" />
+          </Key>
+          <Property Name="trnid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="criteriaid" Type="Int32" />
+          <Property Name="optiontext" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_criteria_mst" Relationship="Self.criteriamap" FromRole="in_criteriaoptions_trn" ToRole="in_criteria_mst" />
+        </EntityType>
+        <EntityType Name="in_drink_mst">
+          <Key>
+            <PropertyRef Name="DrinkId" />
+          </Key>
+          <Property Name="DrinkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.drink" FromRole="in_drink_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_drug_mst">
+          <Key>
+            <PropertyRef Name="DrugId" />
+          </Key>
+          <Property Name="DrugId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.gender" FromRole="in_drug_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_education_mst">
+          <Key>
+            <PropertyRef Name="EduId" />
+          </Key>
+          <Property Name="EduId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Qualification" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.education" FromRole="in_education_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_ethnicity_mst">
+          <Key>
+            <PropertyRef Name="EthnicityId" />
+          </Key>
+          <Property Name="EthnicityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ethnicity" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.ethnicity" FromRole="in_ethnicity_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_forumpost_trn">
+          <Key>
+            <PropertyRef Name="trnid" />
+          </Key>
+          <Property Name="trnid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminid" Type="Int32" />
+          <Property Name="categoryid" Type="Int32" />
+          <Property Name="posttitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="posttext" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="parentpostid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="in_forumprivileges_trn">
+          <Key>
+            <PropertyRef Name="trnid" />
+          </Key>
+          <Property Name="trnid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="forumcategoryid" Type="Int32" />
+          <Property Name="adminid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="in_forumscategory_mst">
+          <Key>
+            <PropertyRef Name="categoryid" />
+          </Key>
+          <Property Name="categoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="in_havechildren_mst">
+          <Key>
+            <PropertyRef Name="HaveChildrenId" />
+          </Key>
+          <Property Name="HaveChildrenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.HaveChildren" FromRole="in_havechildren_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_horoscope_mst">
+          <Key>
+            <PropertyRef Name="HoroscopeId" />
+          </Key>
+          <Property Name="HoroscopeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.horoscope" FromRole="in_horoscope_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_income_mst">
+          <Key>
+            <PropertyRef Name="IncomeId" />
+          </Key>
+          <Property Name="IncomeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Salary" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.income" FromRole="in_income_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_jobtype_mst">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.job" FromRole="in_jobtype_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_language_mst">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userlanguage_trn" Relationship="Self.languagekey" FromRole="in_language_mst" ToRole="in_userlanguage_trn" />
+        </EntityType>
+        <EntityType Name="in_location_mst">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.location" FromRole="in_location_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_message_trn">
+          <Key>
+            <PropertyRef Name="messageID" />
+          </Key>
+          <Property Name="messageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderID" Type="Int32" />
+          <Property Name="RecipientID" Type="Int32" />
+          <Property Name="MessageText" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="SentTime" Type="DateTime" Nullable="false" />
+          <Property Name="IsMessageViewed" Type="Boolean" />
+          <Property Name="MessageViewedTime" Type="DateTime" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="LastEdited" Type="DateTime" />
+          <Property Name="MessageDeletedBySender" Type="Boolean" />
+          <Property Name="MessageDeletedByRecipient" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsRejected" Type="Boolean" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.MessageRecipient" FromRole="in_message_trn" ToRole="in_user_mst" />
+          <NavigationProperty Name="in_user_mst1" Relationship="Self.MessageSender" FromRole="in_message_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_options_trn">
+          <Key>
+            <PropertyRef Name="optionID" />
+          </Key>
+          <Property Name="optionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionText" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="IsGenderSpecific" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="questionID" Type="Int32" />
+          <NavigationProperty Name="in_question_mst" Relationship="Self.questionOptions" FromRole="in_options_trn" ToRole="in_question_mst" />
+          <NavigationProperty Name="in_userquestions_trn" Relationship="Self.UserOptions" FromRole="in_options_trn" ToRole="in_userquestions_trn" />
+        </EntityType>
+        <EntityType Name="in_orientation_mst">
+          <Key>
+            <PropertyRef Name="OrientationId" />
+          </Key>
+          <Property Name="OrientationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrientationType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.Orientation" FromRole="in_orientation_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_pages_mst">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_advertisement_mst" Relationship="Self.fk_pages" FromRole="in_pages_mst" ToRole="in_advertisement_mst" />
+        </EntityType>
+        <EntityType Name="in_photo_mst">
+          <Key>
+            <PropertyRef Name="photoID" />
+          </Key>
+          <Property Name="photoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="albumID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="AttachmentId" Type="Int32" />
+          <Property Name="AbusiveId" Type="Int32" />
+          <Property Name="IsDefaultUserPhoto" Type="Boolean" />
+          <Property Name="IsDefaultAlbumPhoto" Type="Boolean" />
+          <Property Name="PhotoTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="PhotoSize" Type="Decimal" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="in_admin_photo" Relationship="Self.PhotoKey" FromRole="in_photo_mst" ToRole="in_admin_photo" />
+          <NavigationProperty Name="in_album_mst" Relationship="Self.albumPhotos" FromRole="in_photo_mst" ToRole="in_album_mst" />
+          <NavigationProperty Name="in_comments_trn" Relationship="Self.fk" FromRole="in_photo_mst" ToRole="in_comments_trn" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.userPhotos" FromRole="in_photo_mst" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_question_mst">
+          <Key>
+            <PropertyRef Name="questionID" />
+          </Key>
+          <Property Name="questionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionText" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionType" Type="Int32" />
+          <Property Name="OptionNoneType" Type="Int32" Nullable="false" />
+          <Property Name="OptionAllType" Type="Int32" Nullable="false" />
+          <Property Name="OptionAddType" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="in_options_trn" Relationship="Self.questionOptions" FromRole="in_question_mst" ToRole="in_options_trn" />
+          <NavigationProperty Name="in_questionrating_trn" Relationship="Self.questionRating" FromRole="in_question_mst" ToRole="in_questionrating_trn" />
+          <NavigationProperty Name="in_userquestions_trn" Relationship="Self.UserQuestions" FromRole="in_question_mst" ToRole="in_userquestions_trn" />
+        </EntityType>
+        <EntityType Name="in_questionrating_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_question_mst" Relationship="Self.questionRating" FromRole="in_questionrating_trn" ToRole="in_question_mst" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.userQuestionRating" FromRole="in_questionrating_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_religion_mst">
+          <Key>
+            <PropertyRef Name="ReligionId" />
+          </Key>
+          <Property Name="ReligionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReligionType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.religion" FromRole="in_religion_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_reportedphotooptions_mst">
+          <Key>
+            <PropertyRef Name="ReportedPhotoId" />
+          </Key>
+          <Property Name="ReportedPhotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionText" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="in_smoke_mst">
+          <Key>
+            <PropertyRef Name="SmokeId" />
+          </Key>
+          <Property Name="SmokeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SmokeDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.smoke" FromRole="in_smoke_mst" ToRole="in_userprofile_trn" />
+        </EntityType>
+        <EntityType Name="in_user_mst">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UserAgeInYears" Type="Int32" />
+          <Property Name="LastOnlineTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="in_admin_message_trn" Relationship="Self.RecipientID" FromRole="in_user_mst" ToRole="in_admin_message_trn" />
+          <NavigationProperty Name="in_album_mst" Relationship="Self.UserAlbums" FromRole="in_user_mst" ToRole="in_album_mst" />
+          <NavigationProperty Name="in_comments_trn" Relationship="Self.ufk" FromRole="in_user_mst" ToRole="in_comments_trn" />
+          <NavigationProperty Name="in_message_trn" Relationship="Self.MessageRecipient" FromRole="in_user_mst" ToRole="in_message_trn" />
+          <NavigationProperty Name="in_message_trn1" Relationship="Self.MessageSender" FromRole="in_user_mst" ToRole="in_message_trn" />
+          <NavigationProperty Name="in_photo_mst" Relationship="Self.userPhotos" FromRole="in_user_mst" ToRole="in_photo_mst" />
+          <NavigationProperty Name="in_questionrating_trn" Relationship="Self.userQuestionRating" FromRole="in_user_mst" ToRole="in_questionrating_trn" />
+          <NavigationProperty Name="in_userlogin_trn" Relationship="Self.logindetails" FromRole="in_user_mst" ToRole="in_userlogin_trn" />
+          <NavigationProperty Name="in_userprofilesave_trn" Relationship="Self.saveOther" FromRole="in_user_mst" ToRole="in_userprofilesave_trn" />
+          <NavigationProperty Name="in_userprofilesave_trn1" Relationship="Self.saveOwner" FromRole="in_user_mst" ToRole="in_userprofilesave_trn" />
+          <NavigationProperty Name="in_userprofile_trn" Relationship="Self.User" FromRole="in_user_mst" ToRole="in_userprofile_trn" />
+          <NavigationProperty Name="in_userquestions_trn" Relationship="Self.UserAnswers" FromRole="in_user_mst" ToRole="in_userquestions_trn" />
+          <NavigationProperty Name="in_userprofileview_trn" Relationship="Self.userBeingViewed" FromRole="in_user_mst" ToRole="in_userprofileview_trn" />
+          <NavigationProperty Name="in_userlanguage_trn" Relationship="Self.userkey" FromRole="in_user_mst" ToRole="in_userlanguage_trn" />
+          <NavigationProperty Name="in_userprofileview_trn1" Relationship="Self.userViewing" FromRole="in_user_mst" ToRole="in_userprofileview_trn" />
+          <NavigationProperty Name="in_video_mst" Relationship="intellidatev2Model.fk_userid" FromRole="in_user_mst" ToRole="in_video_mst" />
+        </EntityType>
+        <EntityType Name="in_userlanguage_trn">
+          <Key>
+            <PropertyRef Name="trnId" />
+          </Key>
+          <Property Name="trnId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="LanguageId" Type="Int32" />
+          <Property Name="Proficiency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_language_mst" Relationship="Self.languagekey" FromRole="in_userlanguage_trn" ToRole="in_language_mst" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.userkey" FromRole="in_userlanguage_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_userlogin_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginTime" Type="DateTime" Nullable="false" />
+          <Property Name="Browser" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Referer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.logindetails" FromRole="in_userlogin_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_usermessagereport_mst">
+          <Key>
+            <PropertyRef Name="ReportId" />
+          </Key>
+          <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="MessageId" Type="Int32" />
+          <Property Name="ReportText" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="in_userprofile_trn">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="BodyTypeId" Type="Int32" />
+          <Property Name="DrinkId" Type="Int32" />
+          <Property Name="EduId" Type="Int32" />
+          <Property Name="EthnicityId" Type="Int32" />
+          <Property Name="DrugId" Type="Int32" />
+          <Property Name="HaveChildrenId" Type="Int32" />
+          <Property Name="HoroscopeId" Type="Int32" />
+          <Property Name="LocationId" Type="Int32" />
+          <Property Name="ReligionId" Type="Int32" />
+          <Property Name="SmokeId" Type="Int32" />
+          <Property Name="JobId" Type="Int32" />
+          <Property Name="OrientationId" Type="Int32" />
+          <Property Name="Weight" Type="Decimal" />
+          <Property Name="IncomeId" Type="Int32" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastEdited" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsUserType" Type="Boolean" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsVesibleToStraightPeople" Type="Boolean" />
+          <Property Name="ReligionImportance" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="HoroscopeImportance" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_bodytype_mst" Relationship="Self.bodytype" FromRole="in_userprofile_trn" ToRole="in_bodytype_mst" />
+          <NavigationProperty Name="in_drink_mst" Relationship="Self.drink" FromRole="in_userprofile_trn" ToRole="in_drink_mst" />
+          <NavigationProperty Name="in_drug_mst" Relationship="Self.gender" FromRole="in_userprofile_trn" ToRole="in_drug_mst" />
+          <NavigationProperty Name="in_education_mst" Relationship="Self.education" FromRole="in_userprofile_trn" ToRole="in_education_mst" />
+          <NavigationProperty Name="in_ethnicity_mst" Relationship="Self.ethnicity" FromRole="in_userprofile_trn" ToRole="in_ethnicity_mst" />
+          <NavigationProperty Name="in_havechildren_mst" Relationship="Self.HaveChildren" FromRole="in_userprofile_trn" ToRole="in_havechildren_mst" />
+          <NavigationProperty Name="in_horoscope_mst" Relationship="Self.horoscope" FromRole="in_userprofile_trn" ToRole="in_horoscope_mst" />
+          <NavigationProperty Name="in_income_mst" Relationship="Self.income" FromRole="in_userprofile_trn" ToRole="in_income_mst" />
+          <NavigationProperty Name="in_jobtype_mst" Relationship="Self.job" FromRole="in_userprofile_trn" ToRole="in_jobtype_mst" />
+          <NavigationProperty Name="in_location_mst" Relationship="Self.location" FromRole="in_userprofile_trn" ToRole="in_location_mst" />
+          <NavigationProperty Name="in_orientation_mst" Relationship="Self.Orientation" FromRole="in_userprofile_trn" ToRole="in_orientation_mst" />
+          <NavigationProperty Name="in_religion_mst" Relationship="Self.religion" FromRole="in_userprofile_trn" ToRole="in_religion_mst" />
+          <NavigationProperty Name="in_smoke_mst" Relationship="Self.smoke" FromRole="in_userprofile_trn" ToRole="in_smoke_mst" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.User" FromRole="in_userprofile_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_userprofilesave_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="SaveUserID" Type="Int32" />
+          <Property Name="SavedTime" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.saveOther" FromRole="in_userprofilesave_trn" ToRole="in_user_mst" />
+          <NavigationProperty Name="in_user_mst1" Relationship="Self.saveOwner" FromRole="in_userprofilesave_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_userprofileview_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="OtherUserID" Type="Int32" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.userBeingViewed" FromRole="in_userprofileview_trn" ToRole="in_user_mst" />
+          <NavigationProperty Name="in_user_mst1" Relationship="Self.userViewing" FromRole="in_userprofileview_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <EntityType Name="in_userquestions_trn">
+          <Key>
+            <PropertyRef Name="trnID" />
+          </Key>
+          <Property Name="trnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="QuestionOptionID" Type="Int32" />
+          <Property Name="CommentText" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionID" Type="Int32" />
+          <NavigationProperty Name="in_options_trn" Relationship="Self.UserOptions" FromRole="in_userquestions_trn" ToRole="in_options_trn" />
+          <NavigationProperty Name="in_question_mst" Relationship="Self.UserQuestions" FromRole="in_userquestions_trn" ToRole="in_question_mst" />
+          <NavigationProperty Name="in_user_mst" Relationship="Self.UserAnswers" FromRole="in_userquestions_trn" ToRole="in_user_mst" />
+        </EntityType>
+        <Association Name="RecipientID">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_admin_message_trn" Type="Self.in_admin_message_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_admin_message_trn">
+              <PropertyRef Name="RecipientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AdminKey">
+          <End Role="in_adminuser_mst" Type="Self.in_adminuser_mst" Multiplicity="0..1" />
+          <End Role="in_admin_photo" Type="Self.in_admin_photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_adminuser_mst">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="in_admin_photo">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PhotoKey">
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="0..1" />
+          <End Role="in_admin_photo" Type="Self.in_admin_photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_photo_mst">
+              <PropertyRef Name="photoID" />
+            </Principal>
+            <Dependent Role="in_admin_photo">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="adminmap">
+          <End Role="in_adminuser_mst" Type="Self.in_adminuser_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_adminprivileges_mst" Type="Self.in_adminprivileges_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_adminuser_mst">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="in_adminprivileges_mst">
+              <PropertyRef Name="adminid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_attachment">
+          <End Role="in_attachment_mst" Type="Self.in_attachment_mst" Multiplicity="0..1" />
+          <End Role="in_advertisement_mst" Type="Self.in_advertisement_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_attachment_mst">
+              <PropertyRef Name="AttachmentId" />
+            </Principal>
+            <Dependent Role="in_advertisement_mst">
+              <PropertyRef Name="AttachmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pages">
+          <End Role="in_pages_mst" Type="Self.in_pages_mst" Multiplicity="1" />
+          <End Role="in_advertisement_mst" Type="Self.in_advertisement_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_pages_mst">
+              <PropertyRef Name="PageID" />
+            </Principal>
+            <Dependent Role="in_advertisement_mst">
+              <PropertyRef Name="PageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="albumPhotos">
+          <End Role="in_album_mst" Type="Self.in_album_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_album_mst">
+              <PropertyRef Name="albumID" />
+            </Principal>
+            <Dependent Role="in_photo_mst">
+              <PropertyRef Name="albumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAlbums">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_album_mst" Type="Self.in_album_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_album_mst">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bodytype">
+          <End Role="in_bodytype_mst" Type="Self.in_bodytype_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_bodytype_mst">
+              <PropertyRef Name="BodyTypeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="BodyTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk">
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="0..1" />
+          <End Role="in_comments_trn" Type="Self.in_comments_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_photo_mst">
+              <PropertyRef Name="photoID" />
+            </Principal>
+            <Dependent Role="in_comments_trn">
+              <PropertyRef Name="photoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ufk">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_comments_trn" Type="Self.in_comments_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_comments_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="criteriamap">
+          <End Role="in_criteria_mst" Type="Self.in_criteria_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_criteriaoptions_trn" Type="Self.in_criteriaoptions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_criteria_mst">
+              <PropertyRef Name="criteriaid" />
+            </Principal>
+            <Dependent Role="in_criteriaoptions_trn">
+              <PropertyRef Name="criteriaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="drink">
+          <End Role="in_drink_mst" Type="Self.in_drink_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_drink_mst">
+              <PropertyRef Name="DrinkId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="DrinkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gender">
+          <End Role="in_drug_mst" Type="Self.in_drug_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_drug_mst">
+              <PropertyRef Name="DrugId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="DrugId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="education">
+          <End Role="in_education_mst" Type="Self.in_education_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_education_mst">
+              <PropertyRef Name="EduId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="EduId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ethnicity">
+          <End Role="in_ethnicity_mst" Type="Self.in_ethnicity_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_ethnicity_mst">
+              <PropertyRef Name="EthnicityId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="EthnicityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HaveChildren">
+          <End Role="in_havechildren_mst" Type="Self.in_havechildren_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_havechildren_mst">
+              <PropertyRef Name="HaveChildrenId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="HaveChildrenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="horoscope">
+          <End Role="in_horoscope_mst" Type="Self.in_horoscope_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_horoscope_mst">
+              <PropertyRef Name="HoroscopeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="HoroscopeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="income">
+          <End Role="in_income_mst" Type="Self.in_income_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_income_mst">
+              <PropertyRef Name="IncomeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="IncomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="job">
+          <End Role="in_jobtype_mst" Type="Self.in_jobtype_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_jobtype_mst">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="languagekey">
+          <End Role="in_language_mst" Type="Self.in_language_mst" Multiplicity="0..1" />
+          <End Role="in_userlanguage_trn" Type="Self.in_userlanguage_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_language_mst">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="in_userlanguage_trn">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="location">
+          <End Role="in_location_mst" Type="Self.in_location_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_location_mst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MessageRecipient">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_message_trn" Type="Self.in_message_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_message_trn">
+              <PropertyRef Name="RecipientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MessageSender">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_message_trn" Type="Self.in_message_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_message_trn">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="questionOptions">
+          <End Role="in_question_mst" Type="Self.in_question_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_options_trn" Type="Self.in_options_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_question_mst">
+              <PropertyRef Name="questionID" />
+            </Principal>
+            <Dependent Role="in_options_trn">
+              <PropertyRef Name="questionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserOptions">
+          <End Role="in_options_trn" Type="Self.in_options_trn" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userquestions_trn" Type="Self.in_userquestions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_options_trn">
+              <PropertyRef Name="optionID" />
+            </Principal>
+            <Dependent Role="in_userquestions_trn">
+              <PropertyRef Name="QuestionOptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Orientation">
+          <End Role="in_orientation_mst" Type="Self.in_orientation_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_orientation_mst">
+              <PropertyRef Name="OrientationId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="OrientationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userPhotos">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_photo_mst" Type="Self.in_photo_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_photo_mst">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="questionRating">
+          <End Role="in_question_mst" Type="Self.in_question_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_questionrating_trn" Type="Self.in_questionrating_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_question_mst">
+              <PropertyRef Name="questionID" />
+            </Principal>
+            <Dependent Role="in_questionrating_trn">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserQuestions">
+          <End Role="in_question_mst" Type="Self.in_question_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userquestions_trn" Type="Self.in_userquestions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_question_mst">
+              <PropertyRef Name="questionID" />
+            </Principal>
+            <Dependent Role="in_userquestions_trn">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userQuestionRating">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_questionrating_trn" Type="Self.in_questionrating_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_questionrating_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="religion">
+          <End Role="in_religion_mst" Type="Self.in_religion_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_religion_mst">
+              <PropertyRef Name="ReligionId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="ReligionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="smoke">
+          <End Role="in_smoke_mst" Type="Self.in_smoke_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_smoke_mst">
+              <PropertyRef Name="SmokeId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="SmokeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="logindetails">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userlogin_trn" Type="Self.in_userlogin_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userlogin_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saveOther">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userprofilesave_trn" Type="Self.in_userprofilesave_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofilesave_trn">
+              <PropertyRef Name="SaveUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="saveOwner">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userprofilesave_trn" Type="Self.in_userprofilesave_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofilesave_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userprofile_trn" Type="Self.in_userprofile_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofile_trn">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserAnswers">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userquestions_trn" Type="Self.in_userquestions_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userquestions_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userBeingViewed">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userprofileview_trn" Type="Self.in_userprofileview_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofileview_trn">
+              <PropertyRef Name="OtherUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userkey">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1" />
+          <End Role="in_userlanguage_trn" Type="Self.in_userlanguage_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userlanguage_trn">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userViewing">
+          <End Role="in_user_mst" Type="Self.in_user_mst" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="in_userprofileview_trn" Type="Self.in_userprofileview_trn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_userprofileview_trn">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="intellidatev2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="in_abusivereport_mst" EntityType="Self.in_abusivereport_mst" />
+          <EntitySet Name="in_admin_message_mst" EntityType="Self.in_admin_message_mst" />
+          <EntitySet Name="in_admin_message_trn" EntityType="Self.in_admin_message_trn" />
+          <EntitySet Name="in_admin_photo" EntityType="Self.in_admin_photo" />
+          <EntitySet Name="in_adminmessagehistory_mst" EntityType="Self.in_adminmessagehistory_mst" />
+          <EntitySet Name="in_adminprivileges_mst" EntityType="Self.in_adminprivileges_mst" />
+          <EntitySet Name="in_adminuser_mst" EntityType="Self.in_adminuser_mst" />
+          <EntitySet Name="in_advertisement_mst" EntityType="Self.in_advertisement_mst" />
+          <EntitySet Name="in_album_mst" EntityType="Self.in_album_mst" />
+          <EntitySet Name="in_attachment_mst" EntityType="Self.in_attachment_mst" />
+          <EntitySet Name="in_bodytype_mst" EntityType="Self.in_bodytype_mst" />
+          <EntitySet Name="in_comments_trn" EntityType="Self.in_comments_trn" />
+          <EntitySet Name="in_criteria_mst" EntityType="Self.in_criteria_mst" />
+          <EntitySet Name="in_criteriaoptions_trn" EntityType="Self.in_criteriaoptions_trn" />
+          <EntitySet Name="in_drink_mst" EntityType="Self.in_drink_mst" />
+          <EntitySet Name="in_drug_mst" EntityType="Self.in_drug_mst" />
+          <EntitySet Name="in_education_mst" EntityType="Self.in_education_mst" />
+          <EntitySet Name="in_ethnicity_mst" EntityType="Self.in_ethnicity_mst" />
+          <EntitySet Name="in_forumpost_trn" EntityType="Self.in_forumpost_trn" />
+          <EntitySet Name="in_forumprivileges_trn" EntityType="Self.in_forumprivileges_trn" />
+          <EntitySet Name="in_forumscategory_mst" EntityType="Self.in_forumscategory_mst" />
+          <EntitySet Name="in_havechildren_mst" EntityType="Self.in_havechildren_mst" />
+          <EntitySet Name="in_horoscope_mst" EntityType="Self.in_horoscope_mst" />
+          <EntitySet Name="in_income_mst" EntityType="Self.in_income_mst" />
+          <EntitySet Name="in_jobtype_mst" EntityType="Self.in_jobtype_mst" />
+          <EntitySet Name="in_language_mst" EntityType="Self.in_language_mst" />
+          <EntitySet Name="in_location_mst" EntityType="Self.in_location_mst" />
+          <EntitySet Name="in_message_trn" EntityType="Self.in_message_trn" />
+          <EntitySet Name="in_options_trn" EntityType="Self.in_options_trn" />
+          <EntitySet Name="in_orientation_mst" EntityType="Self.in_orientation_mst" />
+          <EntitySet Name="in_pages_mst" EntityType="Self.in_pages_mst" />
+          <EntitySet Name="in_photo_mst" EntityType="Self.in_photo_mst" />
+          <EntitySet Name="in_question_mst" EntityType="Self.in_question_mst" />
+          <EntitySet Name="in_questionrating_trn" EntityType="Self.in_questionrating_trn" />
+          <EntitySet Name="in_religion_mst" EntityType="Self.in_religion_mst" />
+          <EntitySet Name="in_reportedphotooptions_mst" EntityType="Self.in_reportedphotooptions_mst" />
+          <EntitySet Name="in_smoke_mst" EntityType="Self.in_smoke_mst" />
+          <EntitySet Name="in_user_mst" EntityType="Self.in_user_mst" />
+          <EntitySet Name="in_userlanguage_trn" EntityType="Self.in_userlanguage_trn" />
+          <EntitySet Name="in_userlogin_trn" EntityType="Self.in_userlogin_trn" />
+          <EntitySet Name="in_usermessagereport_mst" EntityType="Self.in_usermessagereport_mst" />
+          <EntitySet Name="in_userprofile_trn" EntityType="Self.in_userprofile_trn" />
+          <EntitySet Name="in_userprofilesave_trn" EntityType="Self.in_userprofilesave_trn" />
+          <EntitySet Name="in_userprofileview_trn" EntityType="Self.in_userprofileview_trn" />
+          <EntitySet Name="in_userquestions_trn" EntityType="Self.in_userquestions_trn" />
+          <AssociationSet Name="RecipientID" Association="Self.RecipientID">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_admin_message_trn" EntitySet="in_admin_message_trn" />
+          </AssociationSet>
+          <AssociationSet Name="AdminKey" Association="Self.AdminKey">
+            <End Role="in_adminuser_mst" EntitySet="in_adminuser_mst" />
+            <End Role="in_admin_photo" EntitySet="in_admin_photo" />
+          </AssociationSet>
+          <AssociationSet Name="PhotoKey" Association="Self.PhotoKey">
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+            <End Role="in_admin_photo" EntitySet="in_admin_photo" />
+          </AssociationSet>
+          <AssociationSet Name="adminmap" Association="Self.adminmap">
+            <End Role="in_adminuser_mst" EntitySet="in_adminuser_mst" />
+            <End Role="in_adminprivileges_mst" EntitySet="in_adminprivileges_mst" />
+          </AssociationSet>
+          <AssociationSet Name="fk_attachment" Association="Self.fk_attachment">
+            <End Role="in_attachment_mst" EntitySet="in_attachment_mst" />
+            <End Role="in_advertisement_mst" EntitySet="in_advertisement_mst" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pages" Association="Self.fk_pages">
+            <End Role="in_pages_mst" EntitySet="in_pages_mst" />
+            <End Role="in_advertisement_mst" EntitySet="in_advertisement_mst" />
+          </AssociationSet>
+          <AssociationSet Name="albumPhotos" Association="Self.albumPhotos">
+            <End Role="in_album_mst" EntitySet="in_album_mst" />
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+          </AssociationSet>
+          <AssociationSet Name="UserAlbums" Association="Self.UserAlbums">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_album_mst" EntitySet="in_album_mst" />
+          </AssociationSet>
+          <AssociationSet Name="bodytype" Association="Self.bodytype">
+            <End Role="in_bodytype_mst" EntitySet="in_bodytype_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="fk" Association="Self.fk">
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+            <End Role="in_comments_trn" EntitySet="in_comments_trn" />
+          </AssociationSet>
+          <AssociationSet Name="ufk" Association="Self.ufk">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_comments_trn" EntitySet="in_comments_trn" />
+          </AssociationSet>
+          <AssociationSet Name="criteriamap" Association="Self.criteriamap">
+            <End Role="in_criteria_mst" EntitySet="in_criteria_mst" />
+            <End Role="in_criteriaoptions_trn" EntitySet="in_criteriaoptions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="drink" Association="Self.drink">
+            <End Role="in_drink_mst" EntitySet="in_drink_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="gender" Association="Self.gender">
+            <End Role="in_drug_mst" EntitySet="in_drug_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="education" Association="Self.education">
+            <End Role="in_education_mst" EntitySet="in_education_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="ethnicity" Association="Self.ethnicity">
+            <End Role="in_ethnicity_mst" EntitySet="in_ethnicity_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="HaveChildren" Association="Self.HaveChildren">
+            <End Role="in_havechildren_mst" EntitySet="in_havechildren_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="horoscope" Association="Self.horoscope">
+            <End Role="in_horoscope_mst" EntitySet="in_horoscope_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="income" Association="Self.income">
+            <End Role="in_income_mst" EntitySet="in_income_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="job" Association="Self.job">
+            <End Role="in_jobtype_mst" EntitySet="in_jobtype_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="languagekey" Association="Self.languagekey">
+            <End Role="in_language_mst" EntitySet="in_language_mst" />
+            <End Role="in_userlanguage_trn" EntitySet="in_userlanguage_trn" />
+          </AssociationSet>
+          <AssociationSet Name="location" Association="Self.location">
+            <End Role="in_location_mst" EntitySet="in_location_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="MessageRecipient" Association="Self.MessageRecipient">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_message_trn" EntitySet="in_message_trn" />
+          </AssociationSet>
+          <AssociationSet Name="MessageSender" Association="Self.MessageSender">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_message_trn" EntitySet="in_message_trn" />
+          </AssociationSet>
+          <AssociationSet Name="questionOptions" Association="Self.questionOptions">
+            <End Role="in_question_mst" EntitySet="in_question_mst" />
+            <End Role="in_options_trn" EntitySet="in_options_trn" />
+          </AssociationSet>
+          <AssociationSet Name="UserOptions" Association="Self.UserOptions">
+            <End Role="in_options_trn" EntitySet="in_options_trn" />
+            <End Role="in_userquestions_trn" EntitySet="in_userquestions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="Orientation" Association="Self.Orientation">
+            <End Role="in_orientation_mst" EntitySet="in_orientation_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userPhotos" Association="Self.userPhotos">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_photo_mst" EntitySet="in_photo_mst" />
+          </AssociationSet>
+          <AssociationSet Name="questionRating" Association="Self.questionRating">
+            <End Role="in_question_mst" EntitySet="in_question_mst" />
+            <End Role="in_questionrating_trn" EntitySet="in_questionrating_trn" />
+          </AssociationSet>
+          <AssociationSet Name="UserQuestions" Association="Self.UserQuestions">
+            <End Role="in_question_mst" EntitySet="in_question_mst" />
+            <End Role="in_userquestions_trn" EntitySet="in_userquestions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userQuestionRating" Association="Self.userQuestionRating">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_questionrating_trn" EntitySet="in_questionrating_trn" />
+          </AssociationSet>
+          <AssociationSet Name="religion" Association="Self.religion">
+            <End Role="in_religion_mst" EntitySet="in_religion_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="smoke" Association="Self.smoke">
+            <End Role="in_smoke_mst" EntitySet="in_smoke_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="logindetails" Association="Self.logindetails">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userlogin_trn" EntitySet="in_userlogin_trn" />
+          </AssociationSet>
+          <AssociationSet Name="saveOther" Association="Self.saveOther">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofilesave_trn" EntitySet="in_userprofilesave_trn" />
+          </AssociationSet>
+          <AssociationSet Name="saveOwner" Association="Self.saveOwner">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofilesave_trn" EntitySet="in_userprofilesave_trn" />
+          </AssociationSet>
+          <AssociationSet Name="User" Association="Self.User">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofile_trn" EntitySet="in_userprofile_trn" />
+          </AssociationSet>
+          <AssociationSet Name="UserAnswers" Association="Self.UserAnswers">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userquestions_trn" EntitySet="in_userquestions_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userBeingViewed" Association="Self.userBeingViewed">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofileview_trn" EntitySet="in_userprofileview_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userkey" Association="Self.userkey">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userlanguage_trn" EntitySet="in_userlanguage_trn" />
+          </AssociationSet>
+          <AssociationSet Name="userViewing" Association="Self.userViewing">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_userprofileview_trn" EntitySet="in_userprofileview_trn" />
+          </AssociationSet>
+          <EntitySet Name="in_video_mst" EntityType="intellidatev2Model.in_video_mst" />
+          <AssociationSet Name="fk_userid" Association="intellidatev2Model.fk_userid">
+            <End Role="in_user_mst" EntitySet="in_user_mst" />
+            <End Role="in_video_mst" EntitySet="in_video_mst" />
+          </AssociationSet>
+          <EntitySet Name="in_message_reply" EntityType="intellidatev2Model.in_message_reply" />
+          <EntitySet Name="in_user_notification" EntityType="intellidatev2Model.in_user_notification" />
+        </EntityContainer>
+        <EntityType Name="in_video_mst">
+          <Key>
+            <PropertyRef Name="VideoID" />
+          </Key>
+          <Property Name="VideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AttachmentId" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="VideoDuration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VideoSize" Type="Decimal" />
+          <NavigationProperty Name="in_user_mst" Relationship="intellidatev2Model.fk_userid" FromRole="in_video_mst" ToRole="in_user_mst" />
+        </EntityType>
+        <Association Name="fk_userid">
+          <End Type="intellidatev2Model.in_user_mst" Role="in_user_mst" Multiplicity="0..1" />
+          <End Type="intellidatev2Model.in_video_mst" Role="in_video_mst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_user_mst">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="in_video_mst">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="in_message_reply">
+          <Key>
+            <PropertyRef Name="ReplyId" />
+          </Key>
+          <Property Name="ReplyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="RecipientId" Type="Int32" />
+          <Property Name="IsReply" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="in_user_notification">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Name="NotificationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="OtherUserId" Type="Int32" />
+          <Property Name="NotificationText" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TimeSpan" Type="DateTime" />
+          <Property Name="IsViewed" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="intellidatev2ModelStoreContainer" CdmEntityContainer="intellidatev2Entities">
+          <EntitySetMapping Name="in_abusivereport_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_abusivereport_mst">
+              <MappingFragment StoreEntitySet="in_abusivereport_mst">
+                <ScalarProperty Name="AbusiveId" ColumnName="AbusiveId" />
+                <ScalarProperty Name="AbusiveReportId" ColumnName="AbusiveReportId" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_admin_message_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_admin_message_mst">
+              <MappingFragment StoreEntitySet="in_admin_message_mst">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_admin_message_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_admin_message_trn">
+              <MappingFragment StoreEntitySet="in_admin_message_trn">
+                <ScalarProperty Name="MessageTrnID" ColumnName="MessageTrnID" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RecipientID" ColumnName="RecipientID" />
+                <ScalarProperty Name="SentTime" ColumnName="SentTime" />
+                <ScalarProperty Name="IsMessageViewed" ColumnName="IsMessageViewed" />
+                <ScalarProperty Name="MessageViewedTime" ColumnName="MessageViewedTime" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="LastEdited" ColumnName="LastEdited" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_admin_photo">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_admin_photo">
+              <MappingFragment StoreEntitySet="in_admin_photo">
+                <ScalarProperty Name="AadminPhotoID" ColumnName="AadminPhotoID" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_adminmessagehistory_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_adminmessagehistory_mst">
+              <MappingFragment StoreEntitySet="in_adminmessagehistory_mst">
+                <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="IsRejected" ColumnName="IsRejected" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_adminprivileges_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_adminprivileges_mst">
+              <MappingFragment StoreEntitySet="in_adminprivileges_mst">
+                <ScalarProperty Name="trnID" ColumnName="trnID" />
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="privilegeid" ColumnName="privilegeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_adminuser_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_adminuser_mst">
+              <MappingFragment StoreEntitySet="in_adminuser_mst">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AdminType" ColumnName="AdminType" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_advertisement_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_advertisement_mst">
+              <MappingFragment StoreEntitySet="in_advertisement_mst">
+                <ScalarProperty Name="AdvertisementID" ColumnName="AdvertisementID" />
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="Companie" ColumnName="Companie" />
+                <ScalarProperty Name="AdvertisementUrl" ColumnName="AdvertisementUrl" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AdStartDate" ColumnName="AdStartDate" />
+                <ScalarProperty Name="AdEndDate" ColumnName="AdEndDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_album_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_album_mst">
+              <MappingFragment StoreEntitySet="in_album_mst">
+                <ScalarProperty Name="albumID" ColumnName="albumID" />
+                <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_attachment_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_attachment_mst">
+              <MappingFragment StoreEntitySet="in_attachment_mst">
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="FolderNaame" ColumnName="FolderNaame" />
+                <ScalarProperty Name="AttachmentPath" ColumnName="AttachmentPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_bodytype_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_bodytype_mst">
+              <MappingFragment StoreEntitySet="in_bodytype_mst">
+                <ScalarProperty Name="BodyTypeId" ColumnName="BodyTypeId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_comments_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_comments_trn">
+              <MappingFragment StoreEntitySet="in_comments_trn">
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="photoID" ColumnName="photoID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_criteria_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_criteria_mst">
+              <MappingFragment StoreEntitySet="in_criteria_mst">
+                <ScalarProperty Name="criteriaid" ColumnName="criteriaid" />
+                <ScalarProperty Name="criterianame" ColumnName="criterianame" />
+                <ScalarProperty Name="criteriatype" ColumnName="criteriatype" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="optionquestion" ColumnName="optionquestion" />
+                <ScalarProperty Name="preferencequestion" ColumnName="preferencequestion" />
+                <ScalarProperty Name="MismatchText" ColumnName="MismatchText" />
+                <ScalarProperty Name="ShowMatch" ColumnName="ShowMatch" />
+                <ScalarProperty Name="includeallInpreference" ColumnName="includeallInpreference" />
+                <ScalarProperty Name="includeallInpreferencetext" ColumnName="includeallInpreferencetext" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_criteriaoptions_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_criteriaoptions_trn">
+              <MappingFragment StoreEntitySet="in_criteriaoptions_trn">
+                <ScalarProperty Name="trnid" ColumnName="trnid" />
+                <ScalarProperty Name="criteriaid" ColumnName="criteriaid" />
+                <ScalarProperty Name="optiontext" ColumnName="optiontext" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_drink_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_drink_mst">
+              <MappingFragment StoreEntitySet="in_drink_mst">
+                <ScalarProperty Name="DrinkId" ColumnName="DrinkId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_drug_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_drug_mst">
+              <MappingFragment StoreEntitySet="in_drug_mst">
+                <ScalarProperty Name="DrugId" ColumnName="DrugId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_education_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_education_mst">
+              <MappingFragment StoreEntitySet="in_education_mst">
+                <ScalarProperty Name="EduId" ColumnName="EduId" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_ethnicity_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_ethnicity_mst">
+              <MappingFragment StoreEntitySet="in_ethnicity_mst">
+                <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_forumpost_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_forumpost_trn">
+              <MappingFragment StoreEntitySet="in_forumpost_trn">
+                <ScalarProperty Name="trnid" ColumnName="trnid" />
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="posttitle" ColumnName="posttitle" />
+                <ScalarProperty Name="posttext" ColumnName="posttext" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="parentpostid" ColumnName="parentpostid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_forumprivileges_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_forumprivileges_trn">
+              <MappingFragment StoreEntitySet="in_forumprivileges_trn">
+                <ScalarProperty Name="trnid" ColumnName="trnid" />
+                <ScalarProperty Name="forumcategoryid" ColumnName="forumcategoryid" />
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_forumscategory_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_forumscategory_mst">
+              <MappingFragment StoreEntitySet="in_forumscategory_mst">
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_havechildren_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_havechildren_mst">
+              <MappingFragment StoreEntitySet="in_havechildren_mst">
+                <ScalarProperty Name="HaveChildrenId" ColumnName="HaveChildrenId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_horoscope_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_horoscope_mst">
+              <MappingFragment StoreEntitySet="in_horoscope_mst">
+                <ScalarProperty Name="HoroscopeId" ColumnName="HoroscopeId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_income_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_income_mst">
+              <MappingFragment StoreEntitySet="in_income_mst">
+                <ScalarProperty Name="IncomeId" ColumnName="IncomeId" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_jobtype_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_jobtype_mst">
+              <MappingFragment StoreEntitySet="in_jobtype_mst">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_language_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_language_mst">
+              <MappingFragment StoreEntitySet="in_language_mst">
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_location_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_location_mst">
+              <MappingFragment StoreEntitySet="in_location_mst">
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_message_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_message_trn">
+              <MappingFragment StoreEntitySet="in_message_trn">
+                <ScalarProperty Name="messageID" ColumnName="messageID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="RecipientID" ColumnName="RecipientID" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="SentTime" ColumnName="SentTime" />
+                <ScalarProperty Name="IsMessageViewed" ColumnName="IsMessageViewed" />
+                <ScalarProperty Name="MessageViewedTime" ColumnName="MessageViewedTime" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="LastEdited" ColumnName="LastEdited" />
+                <ScalarProperty Name="MessageDeletedBySender" ColumnName="MessageDeletedBySender" />
+                <ScalarProperty Name="MessageDeletedByRecipient" ColumnName="MessageDeletedByRecipient" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsRejected" ColumnName="IsRejected" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_options_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_options_trn">
+              <MappingFragment StoreEntitySet="in_options_trn">
+                <ScalarProperty Name="optionID" ColumnName="optionID" />
+                <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+                <ScalarProperty Name="IsGenderSpecific" ColumnName="IsGenderSpecific" />
+                <ScalarProperty Name="questionID" ColumnName="questionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_orientation_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_orientation_mst">
+              <MappingFragment StoreEntitySet="in_orientation_mst">
+                <ScalarProperty Name="OrientationId" ColumnName="OrientationId" />
+                <ScalarProperty Name="OrientationType" ColumnName="OrientationType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_pages_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_pages_mst">
+              <MappingFragment StoreEntitySet="in_pages_mst">
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_photo_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_photo_mst">
+              <MappingFragment StoreEntitySet="in_photo_mst">
+                <ScalarProperty Name="photoID" ColumnName="photoID" />
+                <ScalarProperty Name="albumID" ColumnName="albumID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="AbusiveId" ColumnName="AbusiveId" />
+                <ScalarProperty Name="IsDefaultUserPhoto" ColumnName="IsDefaultUserPhoto" />
+                <ScalarProperty Name="IsDefaultAlbumPhoto" ColumnName="IsDefaultAlbumPhoto" />
+                <ScalarProperty Name="PhotoTitle" ColumnName="PhotoTitle" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PhotoSize" ColumnName="PhotoSize" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_question_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_question_mst">
+              <MappingFragment StoreEntitySet="in_question_mst">
+                <ScalarProperty Name="questionID" ColumnName="questionID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+                <ScalarProperty Name="OptionNoneType" ColumnName="OptionNoneType" />
+                <ScalarProperty Name="OptionAllType" ColumnName="OptionAllType" />
+                <ScalarProperty Name="OptionAddType" ColumnName="OptionAddType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_questionrating_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_questionrating_trn">
+              <MappingFragment StoreEntitySet="in_questionrating_trn">
+                <ScalarProperty Name="trnID" ColumnName="trnID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_religion_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_religion_mst">
+              <MappingFragment StoreEntitySet="in_religion_mst">
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="ReligionType" ColumnName="ReligionType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_reportedphotooptions_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_reportedphotooptions_mst">
+              <MappingFragment StoreEntitySet="in_reportedphotooptions_mst">
+                <ScalarProperty Name="ReportedPhotoId" ColumnName="ReportedPhotoId" />
+                <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_smoke_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_smoke_mst">
+              <MappingFragment StoreEntitySet="in_smoke_mst">
+                <ScalarProperty Name="SmokeId" ColumnName="SmokeId" />
+                <ScalarProperty Name="SmokeDetails" ColumnName="SmokeDetails" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_user_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_user_mst">
+              <MappingFragment StoreEntitySet="in_user_mst">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserAgeInYears" ColumnName="UserAgeInYears" />
+                <ScalarProperty Name="LastOnlineTime" ColumnName="LastOnlineTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_userlanguage_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_userlanguage_trn">
+              <MappingFragment StoreEntitySet="in_userlanguage_trn">
+                <ScalarProperty Name="trnId" ColumnName="trnId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="Proficiency" ColumnName="Proficiency" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_userlogin_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_userlogin_trn">
+              <MappingFragment StoreEntitySet="in_userlogin_trn">
+                <ScalarProperty Name="trnID" ColumnName="trnID" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Referer" ColumnName="Referer" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_usermessagereport_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_usermessagereport_mst">
+              <MappingFragment StoreEntitySet="in_usermessagereport_mst">
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="ReportText" ColumnName="ReportText" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_userprofile_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_userprofile_trn">
+              <MappingFragment StoreEntitySet="in_userprofile_trn">
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BodyTypeId" ColumnName="BodyTypeId" />
+                <ScalarProperty Name="DrinkId" ColumnName="DrinkId" />
+                <ScalarProperty Name="EduId" ColumnName="EduId" />
+                <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+                <ScalarProperty Name="DrugId" ColumnName="DrugId" />
+                <ScalarProperty Name="HaveChildrenId" ColumnName="HaveChildrenId" />
+                <ScalarProperty Name="HoroscopeId" ColumnName="HoroscopeId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="SmokeId" ColumnName="SmokeId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="OrientationId" ColumnName="OrientationId" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="IncomeId" ColumnName="IncomeId" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LastEdited" ColumnName="LastEdited" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsUserType" ColumnName="IsUserType" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="IsVesibleToStraightPeople" ColumnName="IsVesibleToStraightPeople" />
+                <ScalarProperty Name="ReligionImportance" ColumnName="ReligionImportance" />
+                <ScalarProperty Name="HoroscopeImportance" ColumnName="HoroscopeImportance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_userprofilesave_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_userprofilesave_trn">
+              <MappingFragment StoreEntitySet="in_userprofilesave_trn">
+                <ScalarProperty Name="trnID" ColumnName="trnID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SaveUserID" ColumnName="SaveUserID" />
+                <ScalarProperty Name="SavedTime" ColumnName="SavedTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_userprofileview_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_userprofileview_trn">
+              <MappingFragment StoreEntitySet="in_userprofileview_trn">
+                <ScalarProperty Name="trnID" ColumnName="trnID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OtherUserID" ColumnName="OtherUserID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_userquestions_trn">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_userquestions_trn">
+              <MappingFragment StoreEntitySet="in_userquestions_trn">
+                <ScalarProperty Name="trnID" ColumnName="trnID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="QuestionOptionID" ColumnName="QuestionOptionID" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_video_mst">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_video_mst">
+              <MappingFragment StoreEntitySet="in_video_mst">
+                <ScalarProperty Name="VideoSize" ColumnName="VideoSize" />
+                <ScalarProperty Name="VideoDuration" ColumnName="VideoDuration" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_message_reply">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_message_reply">
+              <MappingFragment StoreEntitySet="in_message_reply">
+                <ScalarProperty Name="IsReply" ColumnName="IsReply" />
+                <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ReplyId" ColumnName="ReplyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_user_notification">
+            <EntityTypeMapping TypeName="intellidatev2Model.in_user_notification">
+              <MappingFragment StoreEntitySet="in_user_notification">
+                <ScalarProperty Name="IsViewed" ColumnName="IsViewed" />
+                <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+                <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+                <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+                <ScalarProperty Name="OtherUserId" ColumnName="OtherUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

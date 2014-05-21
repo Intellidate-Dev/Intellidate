@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c12a4136dedc44d582c8e0f31ea51201" Name="Diagram1">
+        <EntityTypeShape EntityType="intellidatev2Model.in_abusivereport_mst" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_admin_message_mst" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_admin_message_trn" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_admin_photo" Width="1.5" PointX="10.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_adminmessagehistory_mst" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_adminprivileges_mst" Width="1.5" PointX="10.5" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_adminuser_mst" Width="1.5" PointX="8.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_advertisement_mst" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_album_mst" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_attachment_mst" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_bodytype_mst" Width="1.5" PointX="5.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_comments_trn" Width="1.5" PointX="8.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_criteria_mst" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_criteriaoptions_trn" Width="1.5" PointX="8" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_drink_mst" Width="1.5" PointX="5.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_drug_mst" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_education_mst" Width="1.5" PointX="5.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_ethnicity_mst" Width="1.5" PointX="5.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_forumpost_trn" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_forumprivileges_trn" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_forumscategory_mst" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_havechildren_mst" Width="1.5" PointX="5.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_horoscope_mst" Width="1.5" PointX="5.75" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_income_mst" Width="1.5" PointX="5.75" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_jobtype_mst" Width="1.5" PointX="5.75" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_language_mst" Width="1.5" PointX="3.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_location_mst" Width="1.5" PointX="5.75" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_message_trn" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_options_trn" Width="1.5" PointX="3.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_orientation_mst" Width="1.5" PointX="5.75" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_pages_mst" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_photo_mst" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_question_mst" Width="1.5" PointX="0.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_questionrating_trn" Width="1.5" PointX="3" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_religion_mst" Width="1.5" PointX="5.75" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_reportedphotooptions_mst" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_smoke_mst" Width="1.5" PointX="5.75" PointY="51.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_user_mst" Width="1.5" PointX="0.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_userlanguage_trn" Width="1.5" PointX="6" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_userlogin_trn" Width="1.5" PointX="3" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_usermessagereport_mst" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_userprofile_trn" Width="1.5" PointX="8" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_userprofilesave_trn" Width="1.5" PointX="3" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_userprofileview_trn" Width="1.5" PointX="3" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_userquestions_trn" Width="1.5" PointX="6" PointY="31.375" IsExpanded="true" />
+        <AssociationConnector Association="intellidatev2Model.RecipientID" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.AdminKey" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.PhotoKey" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.adminmap" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.fk_attachment" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.fk_pages" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.albumPhotos" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.UserAlbums" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.bodytype" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.fk" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.ufk" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.criteriamap" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.drink" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.gender" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.education" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.ethnicity" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.HaveChildren" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.horoscope" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.income" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.job" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.languagekey" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.location" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.MessageRecipient" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.MessageSender" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.questionOptions" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.UserOptions" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.Orientation" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.userPhotos" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.questionRating" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.UserQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.userQuestionRating" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.religion" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.smoke" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.logindetails" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.saveOther" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.saveOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.User" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.UserAnswers" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.userBeingViewed" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.userkey" ManuallyRouted="false" />
+        <AssociationConnector Association="intellidatev2Model.userViewing" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_video_mst" Width="1.5" PointX="3" PointY="43.375" />
+        <AssociationConnector Association="intellidatev2Model.fk_userid" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_message_reply" Width="1.5" PointX="8.375" PointY="10.75" />
+        <EntityTypeShape EntityType="intellidatev2Model.in_user_notification" Width="1.5" PointX="10.375" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
