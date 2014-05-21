@@ -13,7 +13,7 @@ namespace AdminModule
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
             RouteTable.Routes.MapHubs();
 
 
