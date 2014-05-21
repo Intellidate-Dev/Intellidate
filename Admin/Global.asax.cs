@@ -16,6 +16,7 @@ namespace AdminModule
             
             RouteTable.Routes.MapHubs();
 
+
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                 new ScriptResourceDefinition
                 {
