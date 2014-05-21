@@ -1,0 +1,442 @@
+/* CSS Document */
+/*LoginScreen Styles */
+.Transformer {
+    text-transform: capitalize;
+    font-variant: small-caps;
+}
+.LightColor{
+    color:#aaa;
+}
+
+.displaynone{
+    display:none;
+}
+
+.Red{
+    color:red;
+}
+
+
+.mainContainer {
+    width: 100%;
+    margin-left: 200px;
+    height: 550px;
+}
+
+.headerTitle {
+    margin-left: 375px;
+    margin-top: 100px;
+}
+
+.formContainer {
+    width: 600px;
+    height: 320px;
+    background-color: #ffffff;
+    color: #606060;
+    margin-left: 175px;
+    margin-top: 25px;
+    float: none;
+    box-shadow: 0px 0px 50px #e0e0e0;
+    border-radius: 10px;
+}
+
+
+
+.labelUN {
+    color: #015da5;
+    padding-top: 75px;
+    padding-left: 105px;
+    float: left;
+    margin-left: 23px;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 100;
+}
+
+.username {
+    margin-top: 97px;
+    margin-left: 35px;
+    left: 0px;
+    padding-left: 0px;
+    background-image: url(images/form_bg.jpg);
+    background-repeat: repeat-x;
+    border: 1px solid #4c8ec0;
+    border-radius: 4px;
+    width: 200px;
+    height: 18px;
+    color: #333333;
+}
+
+.labelPW {
+    clear: both;
+    color: #015da5;
+    margin-left: 125px;
+    font-weight: 100;
+    font-family: 'Lato', 'Arial', sans-serif;
+    float: left;
+}
+
+
+.passwordd {
+    margin-top: 37px;
+    margin-left: 35px;
+    background-image: url(images/form_bg.jpg);
+    background-repeat: repeat-x;
+    border: 1px solid #4c8ec0;
+    border-radius: 4px;
+    width: 200px;
+    height: 18px;
+    color: #333333;
+}
+
+.submitButton {
+    margin-top: 30px;
+    margin-left: 135px;
+    -moz-box-shadow: inset 0px 1px 0px 0px #97c4fe;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #97c4fe;
+    box-shadow: inset 0px 1px 0px 0px #97c4fe;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+    background: -moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background: -webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background: -o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background: -ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
+    background-color: #3d94f6;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #337fed;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #1570cd;
+}
+
+
+    .submitButton:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+        background: -moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: -webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: -o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: -ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+        background-color: #1e62d0;
+    }
+
+    .submitButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+/* End of Login Styles */
+
+/* All the below styles are for the Layout frame, this can be changed later when merged with other page elements */
+
+
+body {
+    font: 12px/18px Arial, sans-serif;
+    width: 100%;
+    background-color: #f8f8f8;
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+    height: 73px;
+    width: 100%;
+    padding-top: 1px;
+    background-color: #1f7872;
+}
+
+    .header p {
+        font-size: 34px;
+        padding-left: 20px;
+        color: #fff;
+    }
+
+.topnav {
+    position: fixed;
+    margin-top: 50px;
+    right: 0px;
+    min-width: 100px;
+    height: 20px;
+    padding-right: 10px;
+}
+
+    .topnav div {
+        float: left;
+        font-size:14px;
+        padding-left: 10px;
+        color: white;
+        text-transform: capitalize;
+        font-variant: small-caps;
+    }
+
+        .topnav div a {
+            text-decoration: none;
+        }
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.middle {
+    width: 100%;
+    position: relative;
+}
+
+    .middle:after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+
+.container {
+    width: 80%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.content {
+    padding: 60px 0 0 250px;
+}
+
+
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+.left-sidebar {
+    float: left;
+    width: 140px;
+    height: 590px;
+    position: relative;
+    background: #d13f31;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+    height: 100px;
+    background: #BFF08E;
+    font-style: italic;
+}
+/* All the styles above are generic Layout styles*/
+
+
+
+/* All the styles below are for the Left Column content Section */
+* {
+    -webkit-font-smoothing: antialiased;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+#list {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.link {
+    background: #d13f31;
+    width: 140px;
+    height: 45px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    display: block;
+}
+
+    .link p {
+        text-transform: capitalize;
+        font-variant: small-caps;
+        font-size: 1.12em;
+        display: block;
+        float: left;
+        padding-left: 2.5em;
+        padding-top: 0.3em;
+        margin: 0;
+        line-height: 2.7;
+        color: #ffffff;
+        font-family: helvetica;
+        font-weight: 700;
+        transition: 0.4s ease;
+        -webkit-transition: 0.4s ease;
+        -moz-transition: 0.4s ease;
+        box-shadow: #626161;
+        -webkit-box-shadow: #626161;
+        -moz-box-shadow: #626161;
+    }
+
+    .link:hover {
+        background: #fd795b;
+    }
+
+.linkselected {
+    background-color: #72b095;
+    padding-right: 0.8em;
+}
+
+/* End of Left Column Section */
+
+
+/* Below is the box effect details*/
+
+.box {
+    width: 20%;
+    height: 100px;
+    background: #FFF;
+    margin: 40px auto;
+    float: left;
+    margin: 10px;
+}
+
+    .box h2 {
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        top: 25px;
+        color: #76623d;
+        height: 100px;
+    }
+
+        .box h2:hover {
+            color: #014e49;
+        }
+
+.effect7 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(192, 164, 114, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(192, 164, 114, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(192, 164, 114, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+    .effect7:before, .effect7:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        -webkit-box-shadow: 0 0 20px rgba(192, 164, 114,0.8);
+        moz-box-shadow: 0 0 20px rgba(192, 164, 114,0.8);
+        box-shadow: 0 0 20px rgba(192, 164, 114,0.8);
+        top: 0;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        -moz-border-radius: 100px / 10px;
+        border-radius: 100px / 10px;
+    }
+
+    .effect7:after {
+        right: 10px;
+        left: auto;
+        -webkit-transform: skew(8deg) rotate(3deg);
+        -moz-transform: skew(8deg) rotate(3deg);
+        -ms-transform: skew(8deg) rotate(3deg);
+        -o-transform: skew(8deg) rotate(3deg);
+        transform: skew(8deg) rotate(3deg);
+    }
+
+
+.box:hover {
+    -webkit-border: 1px solid rgba(118, 98, 61, 0);
+    -moz-border: 1px solid rgba(118, 98, 61, 0);
+    border: 1px solid rgba(118, 98, 61, 0);
+    -webkit-box-shadow: 0 2px 8px rgba(118, 98, 61,, 0.27), 0 0 40px rgba(1, 78, 73, 0.27) inset;
+    -moz-box-shadow: 0 2px 8px rgba(118, 98, 61, 0.27), 0 0 40px rgba(1, 78, 73, 0.27) inset;
+    box-shadow: 0 2px 8px rgba(118, 98, 61, 0.5), 0 0 40px rgba(1, 78, 73, 0.5) inset;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/* End of box Effect * /
+
+
+/*Create User Page styles */
+
+.Main {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    font-family: Arial;
+}
+
+.Title {
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #789;
+    padding: 4px;
+}
+
+.BigGap {
+    height: 120px;
+}
+
+.SmallGap {
+    height: 10px;
+}
+
+.MediamGap {
+    height: 50px;
+}
+
+.UserBox {
+    width: 500px;
+    margin: 0px auto;
+    border: 2px solid #789;
+    border-radius: 8px 5px;
+}
+
+.UserTitle {
+    display: block;
+    margin: 0px;
+    height: 24px;
+    width: 100%;
+    background-color: #014e49;
+    font-size: 16px;
+    font-family: Arial;
+    color: #fff;
+    font-weight: bold;
+}
+
+    .UserTitle span {
+        padding: 8px;
+    }
+
+.NormalText {
+    font-family: Arial;
+    font-size: 14px;
+    color: black;
+    width: 264px;
+    height: 25px;
+}
+
+.Button {
+    font-family: Arial;
+    font-size: 14px;
+    color: black;
+}
+
+/*End of Create User Page styles */

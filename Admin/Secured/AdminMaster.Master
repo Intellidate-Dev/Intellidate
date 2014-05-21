@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="AdminModule.Secured.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Intellidate - Admin</title>
+    <link href="/StyleSheet/adminMaster.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-2.1.0.min.js"></script>
+    <script src="/Scripts/knockout-3.0.0.js"></script>
+    <script src="/Scripts/knockout.mapping-latest.js"></script>
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/jquery-ui.js"></script>
+    <script src="/Scripts/jquery.timeago.js"></script>
+    <script src="/Scripts/jquery.elastic.js"></script>
+    <script src="/Scripts/jquery.signalR-1.1.4.min.js"></script>
+    <script src="/Scripts/Snippets.js"></script>
+    <script src="/signalr/hubs"></script>
+    
+    <script type="text/javascript">
+        var G_AdminID='0';
+       
+
+        $(document).ready(function () {
+            _Live = $.connection.IntellidateHub;
+
+            $.connection.hub.start().done(function () {
+                _Live.server.start();
+            });
+
+           
+
+            _Live.client.addpost = function (_object) {
+                if (typeof AddNewPost == 'function') {
+                    AddNewPost(_object);
+                }
+                
+            };
+
+            _Live.client.addreply = function (_object) {
+                if (typeof AddReply == 'function') {
+                    AddReply(_object);
+                } 
+            };
+
+            _Live.client.setadminonline = function (_object) {
+                if (typeof SetAdminOnline == 'function') {
+                    SetAdminOnline(_object);
+                }
+            };
+
+            _Live.client.setadminoffline = function (_object) {
+                if (typeof SetAdminOffline == 'function') {
+                    SetAdminOffline(_object);
+                }
+            };
+
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="objHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="frmMster" runat="server">
+        <div>
+            <div class="wrapper">
+                <header class="header">
+                    <div class="topnav">
+                        <div><a href="/Secured/Forums/">Forums&nbsp;&nbsp;</a></div>
+                        <div><a href="/Secured/Settings/">Settings</a></div>
+                        <div><a href="/LogoutPage.aspx">Log Out</a></div>
+                    </div>
+                    <p class="Transformer">Intellidate Admin</p>
+                </header>
+                <!-- .header-->
+                <div class="middle">
+                    <!-- .left-sidebar -->
+                    <div class="left-sidebar">
+                        <ul id="list">
+                            <asp:Repeater ID="rptLeftNav" runat="server" OnItemDataBound="rptLeftNav_ItemDataBound">
+                                <ItemTemplate>
+                                    <li class="link">
+                                        <p><a id="lnkLink" runat="server"></a></p>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+
+                        </ul>
+                    </div>
+
+                    <!-- .container-->
+                    <div class="container">
+                        <div style="margin-left: 10px;">
+                            <div>
+                                <asp:ContentPlaceHolder ID="objContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .middle-->
+                <!--<footer class="footer">
+		<h1>Footer message will go here.</h1>
+	</footer><!-- .footer -->
+
+            </div>
+            <!-- .wrapper -->
+        </div>
+
+    </form>
+</body>
+</html>
