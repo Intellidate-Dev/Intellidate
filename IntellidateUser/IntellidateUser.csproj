@@ -643,6 +643,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="web\less\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\IntellidateLib.csproj">
+      <Project>{c5b73cda-67e4-487e-9345-8258c9d40533}</Project>
+      <Name>IntellidateLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
