@@ -1,0 +1,49 @@
+/* CSS Document */
+body{
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+
+.reg-form-title{
+	color:white;
+	text-align:center;
+	margin-top:15px;}
+
+.txt-align-right{
+	text-align:right;
+	margin-top:20px;
+	margin-bottom:10px;}
+
+.txt-align-left{
+	text-align:left;
+	margin-top:18px;
+	margin-bottom:8px;}
+	
+.form-control {
+	width:60%;}
+
+.top-rounded-corners {
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;}
+
+.bottom-rounded-corners {
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;}
+
+.alert {
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:0px;
+  margin-bottom: 0px;
+  padding-left:10px; }
+  
+ .inner-ul {
+  height:325px;
+  overflow-y: auto;}
+  
+  

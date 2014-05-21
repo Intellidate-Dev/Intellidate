@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserSite.master.cs" Inherits="IntellidateUser.web.UserSite" %>
+
+<%@ Register Src="~/web/uc/uc_profilecompletion.ascx" TagPrefix="uc1" TagName="uc_profilecompletion" %>
+<%@ Register Src="~/web/uc/uc_userpic.ascx" TagPrefix="uc1" TagName="uc_userpic" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title id="objTitle" runat="server"></title>
+    <meta charset="utf-8" />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" type="text/css" rel="stylesheet" />
+    <link href="css/myStyle.css" type="text/css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css' />
+    <link href="css/bootstrap-colorselector.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/e1d8d7f457/UntitledProject1/style.css" />
+    <link href="css/CircleCSS.css" rel="stylesheet" />
+    <link href="css/smallcirclecss.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="objHead" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body class="mybody">
+    <form id="frmMaster" runat="server">
+        <div class="container">
+            <nav class=" navbar-mydefault" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="row" style="background-color: #217e7c;">
+                    <div class="col-lg-2">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar" style="background-color: #cefffe;"></span>
+                                <span class="icon-bar" style="background-color: #cefffe;"></span>
+                                <span class="icon-bar" style="background-color: #cefffe;"></span>
+                            </button>
+                            <a class="navbar-brand logo-text" href="#" style="margin-left: 15px;">Intellidate</a>
+                        </div>
+                    </div>
+                    <!--end of column-->
+                    <div class="col-lg-5">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!-- Top Navigation Begin -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/web/Home">home</a></li>
+                                <li><a href="/web/Mailbox">communications</a></li>
+                                <li><a href="/web/Settings">settings</a></li>
+                                <li><a href="/web/Profile">profile</a></li>
+                            </ul>
+                        </div>
+                        <!-- Top Navigation End -->
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!--end of column-->
+                    <div class="col-lg-2 col-xs-offset-3">
+                        <!-- Profile Pic user conrol Begin -->
+                        <uc1:uc_userpic runat="server" id="uc_userpic" />
+                        <!-- Profile Pic user conrol  End -->
+                        <!-- /.navbar-collapse -->
+
+                    </div>
+                    <!-- end of column-->
+                </div>
+                <!--end of row-->
+            </nav>
+
+            <!-- Profile Completion Div Begin -->
+            <uc1:uc_profilecompletion runat="server" ID="uc_profilecompletion" />
+            <!--end of second row-->
+            <!-- Profile Completion Div End -->
+
+            <asp:ContentPlaceHolder ID="objContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../js/jsBackendData" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-colorselector.js"></script>
+        <script src="js/jsfun.js"></script>
+        <script src="js/jsconst.js"></script>
+        <script src="js/jscompose.js"></script>
+        <script src="js/jsnotifications.js"></script>
+        <script src="js/jspercentagecircle.js"></script>
+        <script src="js/jssmallpercentagecircle.js"></script>
+    </form>
+</body>
+</html>

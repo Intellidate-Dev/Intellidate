@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="IntellidateUser.Default" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="htmlHead" runat="server">
+    <asp:ContentPlaceHolder ID="objHead" runat="server"></asp:ContentPlaceHolder>
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" type="text/css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/myStyle.css" type="text/css" rel="stylesheet" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jsconst.js"></script>
+    <script src="js/jsfun.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/jsBackendData" type="text/javascript"></script>
+</head>
+<body>
+    <form id="frmMain" runat="server">
+        <div class="container">
+            <asp:ContentPlaceHolder ID="objContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+</body>
+</html>
